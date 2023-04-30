@@ -1,0 +1,48 @@
+/* Whole Section */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.page_wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}  
+
+/* Navbar Section */
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 56px;
+}
+
+/* Footer Section */
+
+footer {
+  margin-top: auto;
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.social {
+  grid-column: 1 / 4;
+}
+
+.social ul {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.legalStuff {
+  grid-column: 1 / 4;
+}
