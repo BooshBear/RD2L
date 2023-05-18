@@ -15,20 +15,20 @@
 }
 
 html, body {
-  height: 100%;
-  color: var(--Primary);
-}
-
-main {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  height: 100vh;
 }
 
 .page_wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  background-color: var(--Primary);
 }  
+
+main {
+  min-height: inherit;
+  color: var(--Secondary);
+}
 
 .dataList {
   list-style: none;
@@ -36,7 +36,7 @@ main {
 
 /* Navbar Section */
 nav {
-  display: flex;
+  display: none;
   justify-content: space-around;
   align-items: center;
   height: 56px;
@@ -48,7 +48,7 @@ nav {
 
 footer {
   margin-top: auto;
-  display: grid;
+  display: none;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
   text-align: center;
@@ -76,20 +76,3 @@ footer {
 
 
 
-/* Styles for small devices */
-@media (max-width: 767px) {
-  /* Add your CSS rules for small devices here */
-  footer {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Styles for medium devices */
-@media (min-width: 768px) and (max-width: 1023px) {
-  /* Add your CSS rules for medium devices here */
-}
-
-/* Styles for large devices */
-@media (min-width: 1024px) {
-  /* Add your CSS rules for large devices here */
-}
