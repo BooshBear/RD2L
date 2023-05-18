@@ -19,7 +19,13 @@ export default function RootLayout({
           <nav>
             <h1>RD2L</h1>
             <Link href='/' className=''>
-              Home
+              Main
+            </Link>
+            <Link href='/' className=''>
+              Divisions
+            </Link>
+            <Link href='/' className=''>
+              Login
             </Link>
           </nav>
           {/* Main content */}
@@ -28,7 +34,7 @@ export default function RootLayout({
           <footer>
             <div>
               <h1>Contact</h1>
-                <ul>
+                <ul className="dataList">
                   <li>Join Discord</li>
                   <li>Email</li>
                   <li>Report a bug</li>
@@ -36,8 +42,8 @@ export default function RootLayout({
                 </ul>
             </div>
             <div>
-              <h1>Reesources</h1>
-                <ul>
+              <h1>Resources</h1>
+                <ul className="dataList">
                   <li>League Rules</li>
                   <li>Inhouse Rules</li>
                   <li>Playoff Bracket</li>
@@ -45,22 +51,21 @@ export default function RootLayout({
             </div>
             <div>
               <h1>Built Using</h1>
-                <ul>
+                <ul className="dataList">
                   <li>Next JS</li>
                   <li></li>
                   <li></li>
                 </ul>
             </div>
             <div className="social">
-              <p>Social Media Handles</p>
-              <ul>
+              <ul className="dataList">
                 <li>Twitch</li>
                 <li>Github</li>
                 <li>Discord</li>
               </ul>
             </div>
             <div className='legalStuff'>
-              <p>@ Some Very Legal Stuff Here</p>
+              <p>All product and company names are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them.</p>
             </div>
           </footer>
         </div>

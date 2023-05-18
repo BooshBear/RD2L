@@ -9,33 +9,33 @@ export default function FrontPage() {
           <img
           src="/assets/images/rd2l-lame.png"
           alt='My Image'
-        />
+          />
         </div>
-        <div>
+        <div className={styles.colL}>
           <h1>General Info</h1>
-          <ul>
-            <li>Individual signups</li>
-            <li>Teams built via draft</li>
-            <li>8 week BO2 regular season</li>
-            <li>Top teams make playoffs</li>
+          <ul className="dataList">
+            <li><span className={styles.dataArrows}>&gt;</span>Individual signups</li>
+            <li><span className={styles.dataArrows}>&gt;</span>Teams built via draft</li>
+            <li><span className={styles.dataArrows}>&gt;</span>8 week BO2 regular season</li>
+            <li><span className={styles.dataArrows}>&gt;</span>Top teams make playoffs</li>
           </ul>
         </div>
-        <div>
+        <div className={styles.colM}>
           <h1>Player Culture</h1>
-          <ul>
-            <li>Make new friends</li>
-            <li>Grow with your teammates</li>
-            <li>Enjoy community content</li>
-            <li>Play with all skill levels</li>
+          <ul className="dataList">
+            <li><span className={styles.dataArrows}>&gt;</span>Make new friends</li>
+            <li><span className={styles.dataArrows}>&gt;</span>Grow with your teammates</li>
+            <li><span className={styles.dataArrows}>&gt;</span>Enjoy community content</li>
+            <li><span className={styles.dataArrows}>&gt;</span>Play with all skill levels</li>
           </ul>
         </div>
-        <div>
+        <div className={styles.colR}>
           <h1>RD2L Features</h1>
-          <ul>
-            <li>Participate in inhouses</li>
-            <li>Play in weekend tourneys</li>
-            <li>Mini leagues between seasons</li>
-            <li>Find Battlecup stacks</li>
+          <ul className="dataList">
+            <li><span className={styles.dataArrows}>&gt;</span>Participate in inhouses</li>
+            <li><span className={styles.dataArrows}>&gt;</span>Play in weekend tourneys</li>
+            <li><span className={styles.dataArrows}>&gt;</span>Mini leagues between seasons</li>
+            <li><span className={styles.dataArrows}>&gt;</span>Find Battlecup stacks</li>
           </ul>
         </div>
       </div>

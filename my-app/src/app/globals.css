@@ -1,3 +1,12 @@
+/* Colors */
+:root {
+  --Primary: #151515;
+  --Secondary: #faf9fb;
+  --PrimaryBtn: #edc80c ;
+  --SecondaryBtn: #151515;
+  --Accent: #9c3838 ;
+}
+
 /* Whole Section */
 * {
   margin: 0;
@@ -7,7 +16,12 @@
 
 html, body {
   height: 100%;
-  margin: 0;
+  color: var(--Primary);
+}
+
+main {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .page_wrapper {
@@ -16,12 +30,18 @@ html, body {
   min-height: 100%;
 }  
 
+.dataList {
+  list-style: none;
+}
+
 /* Navbar Section */
 nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
   height: 56px;
+  background-color: white;
+  box-shadow: 0 0 10px 1px var(--Accent);
 }
 
 /* Footer Section */
@@ -29,8 +49,15 @@ nav {
 footer {
   margin-top: auto;
   display: grid;
-  place-items: center;
   grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  text-align: center;
+  row-gap: 2rem;
+  padding-top: 12px;
+  padding-bottom: 20px;
+
+  background-color: var(--Primary);
+  color: var(--Secondary);
 }
 
 .social {
@@ -45,4 +72,24 @@ footer {
 
 .legalStuff {
   grid-column: 1 / 4;
+}
+
+
+
+/* Styles for small devices */
+@media (max-width: 767px) {
+  /* Add your CSS rules for small devices here */
+  footer {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Styles for medium devices */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Add your CSS rules for medium devices here */
+}
+
+/* Styles for large devices */
+@media (min-width: 1024px) {
+  /* Add your CSS rules for large devices here */
 }
