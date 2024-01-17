@@ -53,10 +53,22 @@ export default function Home() {
         <div className='col-span-3 flex flex-col justify-center items-center'>
           <h1 className='mt-20 uppercase font-mono text-xl'>Divisions</h1>
           <div className='flex justify-between w-full font-sans'>
-            <h1 className='underline'>Monday</h1>
-            <h1 className='underline'>Tuesday</h1>
-            <h1 className='underline'>Saturday</h1>
-            <h1 className='underline'>Sunday</h1>
+            <div className='flex flex-col justify-center items-center'>
+              <h1 className='underline'>Monday</h1>
+              <p>Season 33</p>
+            </div>
+            <div className='flex flex-col justify-center items-center'>
+              <h1 className='underline'>Tuesday</h1>
+              <p>Season 33</p>
+            </div>
+            <div className='flex flex-col justify-center items-center'>
+              <h1 className='underline'>Saturday</h1>
+              <p>Season 33</p>
+            </div>
+            <div className='flex flex-col justify-center items-center'>
+              <h1 className='underline'>Sunday</h1>
+              <p>Season 33</p>
+            </div>
           </div>
         </div>
       </div>
