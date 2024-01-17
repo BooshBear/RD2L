@@ -6,7 +6,7 @@ export default function Home() {
       <div className='grid grid-colg-[25% 50% 25%] grid-rows-2 justify-center items-center'>
         <div className='col-start-2 row-span-2'>
           <Image
-          className='relative drop-shadow-[0_0_6rem_#ffffff70]'
+          className='relative drop-shadow-[0_0_6rem_#ffffff70] opacity-50'
           src="/assets/images/rd2l-lame.png"
           alt='My Image'
           width={1000}
@@ -50,8 +50,14 @@ export default function Home() {
             <li><span className='text-[#9b3839] font-bold text-xl mr-4'>&gt;</span>Find Battlecup stacks</li>
           </ul>
         </div>
-        <div className='col-span-3 flex justify-center items-center'>
-          <h1 className='mt-20 uppercase font-mono text-xl'>Join Now</h1>
+        <div className='col-span-3 flex flex-col justify-center items-center'>
+          <h1 className='mt-20 uppercase font-mono text-xl'>Divisions</h1>
+          <div className='flex justify-between w-full font-sans'>
+            <h1 className='underline'>Monday</h1>
+            <h1 className='underline'>Tuesday</h1>
+            <h1 className='underline'>Saturday</h1>
+            <h1 className='underline'>Sunday</h1>
+          </div>
         </div>
       </div>
     </main>
