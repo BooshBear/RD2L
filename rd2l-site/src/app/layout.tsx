@@ -18,14 +18,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <nav className='flex justify-between m-2 font-mono text-lg'>
+        <nav className='flex justify-between p-2 font-mono text-lg bg-zinc-700'>
           <div className='flex gap-5 ml-5'>
             {/* RD2l Or Home */}
             <Link href='/' className=''>
-              RD2L
+              Main
             </Link>
             <Link href='/' className=''>
-              Main
+              Seasons
             </Link>
             <Link href='/' className=''>
               Divisions
@@ -37,7 +37,9 @@ export default function RootLayout({
           </Link>
         </nav>
         {children}
-        
+        <footer className='bg-zinc-700 p-2 flex justify-center opacity-80'>
+          <p className='text-sm'>All product and company names are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them.</p>
+        </footer>
       </body>
     </html>
   )

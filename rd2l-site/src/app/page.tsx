@@ -3,7 +3,7 @@ import Image from 'next/image'
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-10">
-      <div className='grid grid-colg-[25% 70% 25%] grid-rows-2 justify-center items-center'>
+      <div className='grid grid-colg-[25% 50% 25%] grid-rows-2 justify-center items-center'>
         <div className='col-start-2 row-span-2'>
           <Image
           className='relative drop-shadow-[0_0_6rem_#ffffff70]'
