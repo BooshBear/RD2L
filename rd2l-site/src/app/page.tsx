@@ -6,7 +6,7 @@ export default function Home() {
       <div className='grid grid-colg-[25% 70% 25%] grid-rows-2 justify-center items-center'>
         <div className='col-start-2 row-span-2'>
           <Image
-          className='relative dark:drop-shadow-[0_0_6rem_#ffffff70]'
+          className='relative drop-shadow-[0_0_6rem_#ffffff70]'
           src="/assets/images/rd2l-lame.png"
           alt='My Image'
           width={1000}
