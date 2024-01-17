@@ -32,7 +32,7 @@ export default function RootLayout({
             </Link>
           </div>
           
-          <Link href='/' className='flex justify-end mr-5'>
+          <Link href='/' className='flex justify-end mr-5 hover:opacity-40'>
             Login
           </Link>
         </nav>
