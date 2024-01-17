@@ -11,6 +11,7 @@ export default function Home() {
           alt='My Image'
           width={1000}
           height={1000}
+          priority
           />
         </div>
         <div className='row-start-1 flex flex-col justify-center items-center'>
