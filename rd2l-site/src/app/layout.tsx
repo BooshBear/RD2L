@@ -18,17 +18,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <nav className='flex justify-between p-2 font-mono text-lg bg-zinc-700'>
+        <nav className='flex justify-between p-2 font-mono text-lg absolute w-full'>
           <div className='flex gap-5 ml-5'>
             {/* RD2l Or Home */}
             <Link href='/' className='hover:opacity-40'>
               Main
             </Link>
             <Link href='/' className='hover:opacity-40'>
-              Seasons
+              Divisions
             </Link>
             <Link href='/' className='hover:opacity-40'>
-              Divisions
+              Content
+            </Link>
+            <Link href='/' className='hover:opacity-40'>
+              Players
             </Link>
           </div>
           
@@ -37,8 +40,8 @@ export default function RootLayout({
           </Link>
         </nav>
         {children}
-        <footer className='bg-zinc-700 p-2 flex justify-center items-center opacity-80'>
-          <p className='text-sm text-center'>All product and company names are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them.</p>
+        <footer className='bg-zinc-600 p-2 flex justify-center items-center'>
+          <p className='text-sm text-center opacity-80'>All product and company names are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them.</p>
         </footer>
       </body>
     </html>
