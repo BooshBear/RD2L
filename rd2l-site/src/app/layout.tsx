@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import Link from 'next/link'
+import Navigation from '@/components/Navigation'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,30 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <nav className='flex justify-between p-2 font-mono text-lg absolute w-full'>
-          <div className='flex gap-5 ml-5'>
-            {/* RD2l Or Home */}
-            <Link href='/' className='hover:opacity-40'>
-              Main
-            </Link>
-            <Link href='/' className='hover:opacity-40'>
-              Divisions
-            </Link>
-            <Link href='/' className='hover:opacity-40'>
-              Content
-            </Link>
-            <Link href='/' className='hover:opacity-40'>
-              Players
-            </Link>
-          </div>
-          
-          <Link href='/' className='flex justify-end mr-5 hover:opacity-40'>
-            Login
-          </Link>
-        </nav>
+        <Navigation/>
         {children}
-        <footer className='bg-zinc-600 p-2 flex justify-center items-center'>
-          <p className='text-sm text-center opacity-80'>All product and company names are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them.</p>
+        <footer className='bg-zinc-600 p-2 flex flex-col justify-center items-center'>
+          <div className=''>Social tags</div>
+          <p className='text-sm opacity-80 text-center text-black'>All product and company names are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them.</p>
         </footer>
       </body>
     </html>
