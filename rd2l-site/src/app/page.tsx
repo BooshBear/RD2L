@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-10">
       <div className='grid grid-colg-[25% 50% 25%] justify-center items-center'>
-        <div className='mt-20 col-span-3 flex flex-col justify-center items-center'>
+        <div className='mb-10 col-span-3 flex flex-col justify-center items-center'>
           <h1 className='uppercase font-mono text-4xl text-shadow-[_6px_8px_3px_var(--tw-shadow-color)] shadow-[#9b3839] mb-8'>Divisions</h1>
           <div className='flex justify-around w-full font-sans'>
             <div className='flex flex-col justify-center items-center'>
