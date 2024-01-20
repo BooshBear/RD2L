@@ -39,37 +39,37 @@ export default function Home() {
         <div className='row-start-2 flex flex-col justify-center items-center'>
           <h1 className='uppercase font-mono text-2xl mb-2 text-shadow-[_6px_8px_3px_var(--tw-shadow-color)] shadow-[#9b3839]'>General Info</h1>
           <ul className='font-sans text-lg'>
-            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>&gt;</span>Individual signups</li>
-            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>&gt;</span>Teams built via draft</li>
-            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>&gt;</span>8 week BO2 regular season</li>
-            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>&gt;</span>Top teams make playoffs</li>
+            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>-&gt;</span>Individual signups</li>
+            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>-&gt;</span>Teams built via draft</li>
+            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>-&gt;</span>8 week BO2 regular season</li>
+            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>-&gt;</span>Top teams make playoffs</li>
           </ul>
         </div>
         <div className='flex flex-col justify-center items-center'>
           <h1 className='uppercase font-mono text-2xl mb-2 text-shadow-[_6px_8px_3px_var(--tw-shadow-color)] shadow-[#9b3839]'>Player Culture</h1>
           <ul className='font-sans text-lg'>
-            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>&gt;</span>Make new friends</li>
-            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>&gt;</span>Grow with your teammates</li>
-            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>&gt;</span>Enjoy community content</li>
-            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>&gt;</span>Play with all skill levels</li>
+            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>-&gt;</span>Make new friends</li>
+            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>-&gt;</span>Grow with your teammates</li>
+            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>-&gt;</span>Enjoy community content</li>
+            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>-&gt;</span>Play with all skill levels</li>
           </ul>
         </div>
         <div className='flex flex-col justify-center items-center'>
           <h1 className='uppercase font-mono text-2xl mb-2 text-shadow-[_6px_8px_3px_var(--tw-shadow-color)] shadow-[#9b3839]'>RD2L Features</h1>
           <ul className='font-sans text-lg'>
-            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>&gt;</span>Participate in inhouses</li>
-            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>&gt;</span>Play in weekend tourneys</li>
-            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>&gt;</span>Mini leagues between seasons</li>
-            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>&gt;</span>Find Battlecup stacks</li>
+            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>-&gt;</span>Participate in inhouses</li>
+            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>-&gt;</span>Play in weekend tourneys</li>
+            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>-&gt;</span>Mini leagues between seasons</li>
+            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>-&gt;</span>Find Battlecup stacks</li>
           </ul>
         </div>
         <div className='flex flex-col justify-center items-center'>
           <h1 className='uppercase font-mono text-2xl mb-2 text-shadow-[_6px_8px_3px_var(--tw-shadow-color)] shadow-[#9b3839]'>RD2L Teams</h1>
           <ul className='font-sans text-lg'>
-            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>&gt;</span>Participate in inhouses</li>
-            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>&gt;</span>Play in weekend tourneys</li>
-            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>&gt;</span>Mini leagues between seasons</li>
-            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>&gt;</span>Find Battlecup stacks</li>
+            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>-&gt;</span>Participate in inhouses</li>
+            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>-&gt;</span>Play in weekend tourneys</li>
+            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>-&gt;</span>Mini leagues between seasons</li>
+            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>-&gt;</span>Find Battlecup stacks</li>
           </ul>
         </div>
       </div>
