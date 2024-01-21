@@ -22,22 +22,22 @@ export default function RootLayout({
         {children}
         <footer className='bg-zinc-600 p-2 grid grid-cols-3 text-center'>
             <div>
-              <h1>Contact</h1>
-              <p>Join Discord</p>
-              <p>Report a bug</p>
-              <p>Provide Feedback</p>
+              <h1 className='underline uppercase'>Contacts</h1>
+              <p className='text-blue-500 hover:text-blue-600'>Join Discord</p>
+              <p className='text-blue-500 hover:text-blue-600'>Report a bug</p>
+              <p className='text-blue-500 hover:text-blue-600'>Provide Feedback</p>
             </div>
             <div>
-              <h1>Resources</h1>
-              <p>League Rules</p>
-              <p>Inhouse RUles</p>
-              <p>Playoff Brackets</p>
+              <h1 className='underline uppercase'>Resources</h1>
+              <p className='text-blue-500 hover:text-blue-600'>League Rules</p>
+              <p className='text-blue-500 hover:text-blue-600'>Inhouse RUles</p>
+              <p className='text-blue-500 hover:text-blue-600'>Playoff Brackets</p>
             </div>
             <div>
-              <h1>Built Using</h1>
-              <p>Your very own booshbear</p>
-              <p>NextJS</p>
-              <p></p>
+              <h1 className='underline uppercase'>Built Using</h1>
+              <p className='text-blue-500 hover:text-blue-600'>Your very own booshbear</p>
+              <p className='text-blue-500 hover:text-blue-600'>NextJS</p>
+              <p className='text-blue-500 hover:text-blue-600'></p>
             </div>
           <div className='col-span-3 text-center'>
             <h1>Social tags</h1>

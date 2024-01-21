@@ -4,31 +4,27 @@ import Link from 'next/link'
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-10">
-      <div className='grid grid-colg-[25% 50% 25%] justify-center items-center'>
-        <div className='mb-10 col-span-3 flex flex-col justify-center items-center'>
+      <div className='grid grid-col-2 justify-center items-center'>
+        <div className='mb-10 col-span-2 flex flex-col justify-center items-center'>
           <h1 className='uppercase font-mono text-4xl text-shadow-[_6px_8px_3px_var(--tw-shadow-color)] shadow-[#9b3839] mb-8'>Divisions</h1>
           <div className='flex justify-around w-full font-sans'>
             <div className='flex flex-col justify-center items-center'>
-              <h1 className='underline'>Monday</h1>
-              <Link href="/" className='hover:opacity-30'>Season 33</Link>
+              <Link href={"/"} className=''>Monday</Link>
             </div>
             <div className='flex flex-col justify-center items-center'>
-              <h1 className='underline'>Tuesday</h1>
-              <Link href="/" className='hover:opacity-30'>Season 33</Link>
+              <Link href={"/"} className=''>Tuesday</Link>
             </div>
             <div className='flex flex-col justify-center items-center'>
-              <h1 className='underline'>Saturday</h1>
-              <Link href="/" className='hover:opacity-30'>Season 33</Link>
+              <Link href={"/"} className=''>Saturday</Link>
             </div>
             <div className='flex flex-col justify-center items-center'>
-              <h1 className='underline'>Sunday</h1>
-              <Link href="/" className='hover:opacity-30'>Season 33</Link>
+              <Link href={"/"} className=''>Sunday</Link>
             </div>
           </div>
         </div>
-        <div className='col-start-2 row-span-2'>
+        <div className='col-start-2 row-span-3'>
           <Image
-          className='relative drop-shadow-[0_0_6rem_#ffffff70] opacity-65'
+          className='relative drop-shadow-[0_0_6rem_#ffffff70] opacity-60'
           src="/assets/images/rd2l-lame.png"
           alt='My Image'
           width={1000}
@@ -57,16 +53,7 @@ export default function Home() {
         <div className='flex flex-col justify-center items-center'>
           <h1 className='uppercase font-mono text-2xl mb-2 text-shadow-[_6px_8px_3px_var(--tw-shadow-color)] shadow-[#9b3839]'>RD2L Features</h1>
           <ul className='font-sans text-lg'>
-            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>-&gt;</span>Participate in inhouses</li>
-            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>-&gt;</span>Play in weekend tourneys</li>
-            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>-&gt;</span>Mini leagues between seasons</li>
-            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>-&gt;</span>Find Battlecup stacks</li>
-          </ul>
-        </div>
-        <div className='flex flex-col justify-center items-center'>
-          <h1 className='uppercase font-mono text-2xl mb-2 text-shadow-[_6px_8px_3px_var(--tw-shadow-color)] shadow-[#9b3839]'>RD2L Teams</h1>
-          <ul className='font-sans text-lg'>
-            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>-&gt;</span>Participate in inhouses</li>
+            <li><span className='text-[#9b3839] font-bold text-xl mr-4'>-&gt;</span>Inhouse partipition</li>
             <li><span className='text-[#9b3839] font-bold text-xl mr-4'>-&gt;</span>Play in weekend tourneys</li>
             <li><span className='text-[#9b3839] font-bold text-xl mr-4'>-&gt;</span>Mini leagues between seasons</li>
             <li><span className='text-[#9b3839] font-bold text-xl mr-4'>-&gt;</span>Find Battlecup stacks</li>
