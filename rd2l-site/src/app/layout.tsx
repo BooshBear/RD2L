@@ -30,7 +30,7 @@ export default function RootLayout({
             <div>
               <h1 className='underline uppercase'>Resources</h1>
               <p className='text-blue-500 hover:text-blue-600'>League Rules</p>
-              <p className='text-blue-500 hover:text-blue-600'>Inhouse RUles</p>
+              <p className='text-blue-500 hover:text-blue-600'>Inhouse Rules</p>
               <p className='text-blue-500 hover:text-blue-600'>Playoff Brackets</p>
             </div>
             <div>
