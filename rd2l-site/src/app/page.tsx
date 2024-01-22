@@ -6,19 +6,22 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between p-10">
       <div className='grid grid-col-2 gap-6 justify-center items-center'>
         <div className='mb-10 col-span-2 flex flex-col justify-center items-center'>
-          <h1 className='uppercase font-mono text-4xl text-shadow-[_6px_8px_3px_var(--tw-shadow-color)] shadow-[#9b3839] mb-8'>Divisions</h1>
+          <h1 className='uppercase font-mono text-4xl text-shadow-[_6px_8px_3px_var(--tw-shadow-color)] shadow-[#9b3839] mb-8'>divisions</h1>
           <div className='flex justify-around w-full font-sans'>
             <div className='flex flex-col justify-center items-center'>
-              <Link href={"/"} className=''>Monday</Link>
+              <Link href={"/divisions"} className=''>Monday 8PM EST</Link>
             </div>
             <div className='flex flex-col justify-center items-center'>
-              <Link href={"/"} className=''>Tuesday</Link>
+              <Link href={"/divisions"} className=''>Tuesday 9PM EST</Link>
             </div>
             <div className='flex flex-col justify-center items-center'>
-              <Link href={"/"} className=''>Saturday</Link>
+              <Link href={"/divisions"} className=''>Wednesday 6PM PST</Link>
             </div>
             <div className='flex flex-col justify-center items-center'>
-              <Link href={"/"} className=''>Sunday</Link>
+              <Link href={"/divisions"} className=''>Sunday 8PM EST</Link>
+            </div>
+            <div className='flex flex-col justify-center items-center'>
+              <Link href={"/divisions"} className=''>Sunday 7PM PST</Link>
             </div>
           </div>
         </div>

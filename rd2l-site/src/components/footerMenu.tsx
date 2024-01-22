@@ -2,20 +2,20 @@ import Link from "next/link"
 
 export default function FooterMenu() {
     return (
-        <footer className='bg-zinc-400 p-2 grid grid-cols-3 text-center text-[#0c0c0c] font-mono'>
-            <div className="flex flex-col">
+        <footer className='bg-gray-400 p-2 grid grid-cols-3 text-[#0c0c0c] font-mono'>
+            <div className="flex flex-col items-center">
               <h1 className='underline uppercase text-xl'>Contacts</h1>
               <Link href={"https://discord.com/invite/y4NkFrw"} target="_blank" className='text-blue-600 hover:text-blue-800'>Join Discord</Link>
               <Link href={"https://github.com/BooshBear/RD2L/issues/new"} target="_blank" className='text-blue-600 hover:text-blue-800'>Report a bug</Link>
               <Link href={"https://www.reddit.com/r/redditdota2league/submit"} target="_blank" className='text-blue-600 hover:text-blue-800'>Provide Feedback</Link>
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col items-center">
               <h1 className='underline uppercase text-xl'>Resources</h1>
               <Link href={"/"} target="_blank" className='text-blue-600 hover:text-blue-800'>League Rules</Link>
               <Link href={"/"} target="_blank" className='text-blue-600 hover:text-blue-800'>Inhouse Rules</Link>
               <Link href={"/"} target="_blank" className='text-blue-600 hover:text-blue-800'>Playoff Brackets</Link>
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col items-center">
               <h1 className='underline uppercase text-xl'>Built Using</h1>
               <Link href={"https://github.com/BooshBear"} target="_blank" className='text-blue-600 hover:text-blue-800'>Your very own booshbear</Link>
               <Link href={"https://nextjs.org/"} target="_blank" className='text-blue-600 hover:text-blue-800'>NextJS</Link>
