@@ -2,7 +2,7 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
-export default function Navigation() {
+export default function NavBar() {
     const pathname = usePathname();
 
     const isActive = (href: any) => pathname == href;
@@ -12,16 +12,16 @@ export default function Navigation() {
           <div className='flex gap-2 ml-5'>
             {/* RD2l Or Home */}
             <Link href='/' className={`hover:bg-opacity-40 hover:bg-[#9b383a8a] pl-2 pr-2 p-2 rounded-b-md ${isActive("/") ? "bg-[#9b383a]" : ""}`}>
-              Main
+              Home
+            </Link>
+            <Link href='/players' className={`hover:bg-opacity-40 hover:bg-[#9b383a8a] pl-2 pr-2 p-2 rounded-b-md ${isActive("/players") ? "bg-[#9b383a]" : ""}`}>
+              Players
             </Link>
             <Link href='/divisions' className={`hover:bg-opacity-40 hover:bg-[#9b383a8a] pl-2 pr-2 p-2 rounded-b-md ${isActive("/divisions") ? "bg-[#9b383a]" : ""}`}>
               Divisions
             </Link>
             <Link href='/content' className={`hover:bg-opacity-40 hover:bg-[#9b383a8a] pl-2 pr-2 p-2 rounded-b-md ${isActive("/content") ? "bg-[#9b383a]" : ""}`}>
               Content
-            </Link>
-            <Link href='/players' className={`hover:bg-opacity-40 hover:bg-[#9b383a8a] pl-2 pr-2 p-2 rounded-b-md ${isActive("/players") ? "bg-[#9b383a]" : ""}`}>
-              Players
             </Link>
           </div>
           
