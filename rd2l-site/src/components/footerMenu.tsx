@@ -11,9 +11,9 @@ export default function FooterMenu() {
             </div>
             <div className="flex flex-col items-center">
               <h1 className='underline uppercase text-xl'>Resources</h1>
-              <Link href={"/"} target="_blank" className='text-blue-400 hover:text-blue-500'>League Rules</Link>
-              <Link href={"/"} target="_blank" className='text-blue-400 hover:text-blue-500'>Inhouse Rules</Link>
-              <Link href={"/"} target="_blank" className='text-blue-400 hover:text-blue-500'>Playoff Brackets</Link>
+              <Link href={"/assets/rules/rules.md"} target="_blank" rel="noopener noreferrer" className='text-blue-400 hover:text-blue-500'>League Rules</Link>
+              <Link href={"/assets/rules/inhouserules.md"} target="_blank" rel="noopener noreferrer" className='text-blue-400 hover:text-blue-500'>Inhouse Rules</Link>
+              <Link href={"/"} target="_blank" rel="noopener noreferrer" className='text-blue-400 hover:text-blue-500'>Playoff Brackets</Link>
             </div>
             <div className="flex flex-col items-center">
               <h1 className='underline uppercase text-xl'>Built Using</h1>
