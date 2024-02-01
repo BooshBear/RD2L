@@ -1,7 +1,7 @@
 "use client"
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-
+import SteamLogin from "./steamLogin";
 export default function NavBar() {
     const pathname = usePathname();
 
@@ -25,9 +25,7 @@ export default function NavBar() {
             </Link>
           </div>
           
-          <Link href='/login' className='flex justify-end mr-5 hover:bg-opacity-40 hover:bg-[#9b383a8a] p-2 rounded-b-md'>
-            Login
-          </Link>
+          <div className="hover:bg-opacity-40 hover:bg-[#9b383a8a] pl-2 pr-2 p-2 hover:rounded-b-md mr-4"><SteamLogin/></div>
         </nav>
   );
 };

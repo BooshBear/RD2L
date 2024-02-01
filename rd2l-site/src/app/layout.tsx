@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import SessionWrapper from '@/components/sessionWrapper'
 import NavBar from '@/components/navBarMenu'
 import FooterMenu from '@/components/footerMenu'
 
@@ -17,12 +18,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body>
-        <NavBar/>
-        {children}
-        <FooterMenu/>
-      </body>
-    </html>
+    <SessionWrapper>
+      <html lang="en">
+        <body>
+          <NavBar/>
+          {children}
+          <FooterMenu/>
+        </body>
+      </html>
+    </SessionWrapper>
   )
 }
