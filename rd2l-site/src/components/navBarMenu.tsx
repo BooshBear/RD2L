@@ -25,7 +25,7 @@ export default function NavBar() {
             </Link>
           </div>
           
-          <div className="hover:bg-opacity-40 hover:bg-[#9b383a8a] pl-2 pr-2 p-2 hover:rounded-b-md mr-4"><SteamLogin/></div>
+          <div className="absolute z-20 right-0 pl-2 pr-2 p-2"><SteamLogin/></div>
         </nav>
   );
 };
