@@ -6,6 +6,7 @@ import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import clientPromise from "../../../../lib/mongoDBConnect";
 
 const handler = NextAuth({
+    // @ts-ignore
     adapter: MongoDBAdapter(clientPromise),
     providers: [
       CredentialsProvider({
