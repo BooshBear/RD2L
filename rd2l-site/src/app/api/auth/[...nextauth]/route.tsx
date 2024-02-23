@@ -18,7 +18,8 @@ const handler = NextAuth({
         // You can pass any HTML attribute to the <input> tag through the object.
         credentials: {
           username: { label: "Username", type: "text", placeholder: "username" },
-          password: { label: "Password", type: "password", placeholder: "password" }
+          password: { label: "Password", type: "password", placeholder: "password" },
+          steamID: { label: "SteamID", type: "steamID", placeholder: "steamID" }
         },
         async authorize(credentials, req) {
           // You need to provide your own logic here that takes the credentials
