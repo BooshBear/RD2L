@@ -6,11 +6,21 @@ export default function Players() {
             <div>
                 {/* Search bar */}
                 <form>
-                    <input placeholder="PlayerName" className="bg-black rounded-md p-1 text-center shadow-sm shadow-[#9b3839]"></input>
+                    <input placeholder="Search PlayerName" className="bg-black rounded-md p-1 text-center shadow-sm shadow-[#9b3839]"></input>
                 </form>
             </div>
-            <div>
+            <div className="flex gap-6">
                 {/* players cards put this into a component later */}
+                <div className="flex gap-2 border-2 border-[#9b3839] rounded-md p-1">
+                    <h1>SteamPic</h1>
+                    <h1>SteamName</h1>
+                    <h1>Rank</h1>
+                </div>
+                <div className="flex gap-2 border-2 border-[#9b3839] rounded-md p-1">
+                    <h1>SteamPic</h1>
+                    <h1>SteamName</h1>
+                    <h1>Rank</h1>
+                </div>
                 <div className="flex gap-2 border-2 border-[#9b3839] rounded-md p-1">
                     <h1>SteamPic</h1>
                     <h1>SteamName</h1>
