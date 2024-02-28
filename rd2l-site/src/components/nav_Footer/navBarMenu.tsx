@@ -1,7 +1,7 @@
 "use client"
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import SteamLogin from "./steamLogin";
+import SteamLogin from "../steamLogin";
 export default function NavBar() {
     const pathname = usePathname();
 
