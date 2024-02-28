@@ -1,9 +1,11 @@
 import Image from 'next/image'
+
+import {cn}
 import Link from 'next/link'
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-10">
+    <main className="flex h-full flex-col items-center justify-between p-10">
       <div className='grid grid-col-2 gap-6 justify-center items-center'>
         <div className='mb-10 col-span-2 flex flex-col justify-center items-center'>
           <h1 className='uppercase font-mono text-4xl text-shadow-[_6px_8px_3px_var(--tw-shadow-color)] shadow-[#9b3839] mb-8'>divisions</h1>

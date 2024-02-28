@@ -20,7 +20,6 @@ export default function Divisions() {
                 <section className="grid grid-cols-5">
                     {/* instead of making it to where their is 5 different div have it a component that loops through the different divisions through a database to make it scalable. */}
                 </section>
-
             </div>
         </main>
     )
