@@ -39,7 +39,7 @@ export default function Login() {
                 </div>
                 <div className="flex flex-col justify-center items-center">
                     <Link href={"/"} className='text-blue-400 hover:text-blue-500'>Did you forget your password?</Link>    
-                    <Link href={"/registration"} className='text-blue-400 hover:text-blue-500'>Don't have an account?</Link>
+                    <Link href={"/registration"} className='text-blue-400 hover:text-blue-500'>Don-&gt;t have an account?</Link>
                 </div>
             </div>
             
