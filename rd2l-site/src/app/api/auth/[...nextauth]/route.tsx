@@ -30,6 +30,7 @@ const handler = NextAuth({
           // (i.e., the request IP address)
           if (!credentials?.username || !credentials?.password) return null;
           try {
+            // @ts-ignore
             const user = await login(credentials.username, credentials.password);
             return user;
           } catch (e) {
