@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import {cn}
+
 import Link from 'next/link'
 
 export default function Home() {
