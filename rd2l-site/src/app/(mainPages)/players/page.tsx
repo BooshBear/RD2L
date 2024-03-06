@@ -1,4 +1,3 @@
-import PlayerCard from "@/components/playerComponents/playercard";
 
 
 export default function Players() {
@@ -10,7 +9,6 @@ export default function Players() {
                     <input placeholder="Search PlayerName" className="bg-black rounded-md p-1 text-center shadow-sm shadow-[#9b3839]"></input>
                 </form>
             </div>
-            <PlayerCard/>
         </main>
     )
 }
