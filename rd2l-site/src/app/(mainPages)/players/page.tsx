@@ -6,8 +6,9 @@ export default function Players() {
             <div>
                 {/* Search bar */}
                 <form>
-                    <input placeholder="Search PlayerName" className="bg-black rounded-md p-1 text-center shadow-sm shadow-[#9b3839]"></input>
+                    <input placeholder="Search PlayerName" className="bg-black rounded-[5px] p-2 text-center text-white shadow-lg shadow-[#9b3839] hover:border-2 hover:border-[#9b3839]"></input>
                 </form>
+                {/* Area to put the code for the player cards */}
             </div>
         </main>
     )

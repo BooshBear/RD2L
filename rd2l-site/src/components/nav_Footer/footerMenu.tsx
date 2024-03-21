@@ -2,7 +2,7 @@ import Link from "next/link"
 
 export default function FooterMenu() {
     return (
-        <footer className='bg-neutral-600 p-2 grid grid-cols-3 text-white font-mono'>
+        <footer className='bg-neutral-800 p-2 grid grid-cols-3 text-white font-mono'>
             <div className="flex flex-col items-center">
               <h1 className='underline uppercase text-xl'>Contacts</h1>
               <Link href={"https://discord.com/invite/y4NkFrw"} target="_blank" className='text-blue-400 hover:text-blue-500'>Join Discord</Link>
@@ -35,7 +35,7 @@ export default function FooterMenu() {
                     </svg>
                 </Link>
             </div>
-            <p className='col-span-3 text-sm opacity-80 text-center text-black'>All product and company names are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them.</p>
+            <p className='col-span-3 text-sm opacity-80 text-center text-white'>All product and company names are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them.</p>
         </footer>
     )
 }
