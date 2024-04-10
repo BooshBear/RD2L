@@ -11,7 +11,7 @@ export default function Home() {
           <h1 className='uppercase font-mono text-4xl text-shadow-[_6px_8px_3px_var(--tw-shadow-color)] shadow-[#9b3839] mb-8'>divisions</h1>
           <div className='flex justify-around w-full font-sans uppercase'>
             <div className="flex flex-col justify-center items-center p-6 hover:text-white hover:grayscale-[1]">
-              <Link href={"/divisions"} className="">Monday 8PM EST</Link>
+              <Link href={"/divisions"} className=''>Monday 8PM EST</Link>
               <Image className='absolute z-[-1] translate-y-[8px]' src={'/assets/images/bpixel.png'} alt='...loading' height={200} width={200}></Image>
             </div>
             <div className='flex flex-col justify-center items-center p-6 hover:text-white hover:grayscale-[1]'>

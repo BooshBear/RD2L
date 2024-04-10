@@ -26,7 +26,7 @@ export default function Login() {
     }
     return (
         <main className="flex min-h-screen flex-col items-center justify-center p-10">
-            <div className="flex flex-col w-80 h-96 justify-evenly items-center bg-white text-black rounded-[4px] p-3 drop-shadow-[0_0_6rem_#ffffff70] border-3 border-black">
+            <div className="flex flex-col w-80 h-96 justify-evenly items-center text-black rounded-[4px] p-3 drop-shadow-[0_0_6rem_#ffffff70] border-3 border-black">
                 <form className="flex flex-col gap-2 justify-center items-center min-w-full">
                     <h1 className="uppercase font-mono font-extrabold text-2xl">Login</h1>
                     <input placeholder="username" className="border-black border-2 p-1 rounded-[4px] min-w-full"></input>
