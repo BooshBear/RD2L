@@ -5,10 +5,30 @@ import GoogleProvider from "next-auth/providers/google";
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import clientPromise from "../../../../lib/mongoDBConnect";
 
+
 const handler = NextAuth({
     // @ts-ignore
     adapter: MongoDBAdapter(clientPromise),
     providers: [
+      {
+        id: 'steam',
+        name: 'Steam',
+        type: 'oauth',
+        accessTokenUrl: 'https://steamcommunity.com/openid/login',
+        requestTokenUrl: 'https://steamcommunity.com/openid/login',
+        authorization: 'https://steamcommunity.com/openid/login',
+        profileUrl: 'https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/',
+        profile: (profile:any) => {
+          return {
+            id: profile.steamid,
+            name: profile.personaname,
+            email: profile.email,
+            image: profile.avatar
+          };
+        },
+        clientId: process.env.STEAM_CLIENT_ID,
+        clientSecret: process.env.STEAM_CLIENT_SECRET,
+      },
       CredentialsProvider({
         // The name to display on the sign in form (e.g. 'Sign in with...')
         name: 'Sign in with Credentials',
