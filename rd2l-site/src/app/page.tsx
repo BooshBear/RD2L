@@ -10,26 +10,26 @@ export default function Home() {
         <div className='mb-10 col-span-2 flex flex-col justify-center items-center'>
           <h1 className='uppercase font-mono text-4xl text-shadow-[_6px_8px_3px_var(--tw-shadow-color)] shadow-[#9b3839] mb-8'>divisions</h1>
           <div className='flex justify-around w-full font-sans uppercase'>
-            <div className="flex flex-col justify-center items-center p-6 hover:text-white hover:grayscale-[1]">
-              <Link href={"/divisions"} className=''>Monday 8PM EST</Link>
+            <Link href={"/divisions"} className="flex flex-col justify-center items-center p-6 hover:text-white hover:text-xs hover:grayscale-[1]">
+              <p>Monday 8PM EST</p>
               <Image className='absolute z-[-1] translate-y-[8px]' src={'/assets/images/bpixel.png'} alt='...loading' height={200} width={200}></Image>
-            </div>
-            <div className='flex flex-col justify-center items-center p-6 hover:text-white hover:grayscale-[1]'>
-              <Link href={"/divisions"} className=''>Tuesday 9PM EST</Link>
+            </Link>
+            <Link href={"/divisions"} className='flex flex-col justify-center items-center p-6 hover:text-white hover:text-xs hover:grayscale-[1]'>
+              <p>Tuesday 9PM EST</p>
               <Image className='absolute z-[-1] translate-y-[8px]' src={'/assets/images/bpixel.png'} alt='...loading' height={200} width={200}></Image>
-            </div>
-            <div className='flex flex-col justify-center items-center p-6 hover:text-white hover:grayscale-[1]'>
-              <Link href={"/divisions"} className=''>Wednesday 6PM PST</Link>
+            </Link>
+            <Link href={"/divisions"} className='flex flex-col justify-center items-center p-6 hover:text-white hover:text-xs hover:grayscale-[1]'>
+              <p>Wednesday 6PM PST</p>
               <Image className='absolute z-[-1] translate-y-[8px]' src={'/assets/images/bpixel.png'} alt='...loading' height={200} width={230}></Image>
-            </div>
-            <div className='flex flex-col justify-center items-center p-6 hover:text-white hover:grayscale-[1]'>
-              <Link href={"/divisions"} className=''>Sunday 8PM EST</Link>
+            </Link>
+            <Link href={"/divisions"} className='flex flex-col justify-center items-center p-6 hover:text-white hover:text-xs hover:grayscale-[1]'>
+              <p>Sunday 8PM EST</p>
               <Image className='absolute z-[-1] translate-y-[8px]' src={'/assets/images/bpixel.png'} alt='...loading' height={200} width={200}></Image>
-            </div>
-            <div className='flex flex-col justify-center items-center p-6 hover:text-white hover:grayscale-[1]'>
-              <Link href={"/divisions"} className=''>Sunday 7PM PST</Link>
-              <Image className='absolute z-[-1] translate-y-[8px]' src={'/assets/images/bpixel.png'} alt='...loading' height={200} width={200}></Image>
-            </div>
+            </Link>
+            <Link href={"/divisions"} className='flex flex-col justify-center items-center p-6 hover:text-white hover:text-sm hover:grayscale-[1]'>
+                <p>Sunday 7PM PST</p>
+                <Image className='absolute z-[-1] translate-y-[8px]' src={'/assets/images/bpixel.png'} alt='...loading' height={200} width={200}></Image>
+            </Link>
           </div>
         </div>
         <div className='col-start-2 row-span-3'>
