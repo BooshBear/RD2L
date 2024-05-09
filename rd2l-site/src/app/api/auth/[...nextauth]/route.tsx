@@ -1,6 +1,9 @@
 import NextAuth from 'next-auth';
 import SteamProvider, {PROVIDER_ID} from 'next-auth-steam';
-import type { NextApiRequest, NextApiResponse } from 'next'
+import { Adapter } from 'next-auth/adapters';
+import { MongoDBAdapter } from '@auth/mongodb-adapter';
+import clientPromise from '../../../../lib/mongoDBConnect';
+import type { NextApiRequest, NextApiResponse } from 'next';
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   return NextAuth(req, res, {
@@ -13,20 +16,22 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     callbacks: {
       jwt({ token, account, profile }) {
         if (account?.provider === PROVIDER_ID) {
+          console.log(token)
           token.steam = profile
         }
 
         return token
       },
       session({ session, token }) {
-        if ('steam' in token) {
+        if (token && 'steam' in token) {
           // @ts-expect-error
-          session.user.steam = token.steam
+            session.user.steam = token.steam;
         }
-
-        return session
-      }
+    
+        return session;
     }
+    },
+    adapter: await MongoDBAdapter(clientPromise) as Adapter,
   })
 }
 
