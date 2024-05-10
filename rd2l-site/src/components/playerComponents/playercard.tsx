@@ -21,7 +21,7 @@ export default function PlayerCard() {
             <h1>Rank</h1>
         </div>
         {/* <div className="flex">
-            // hidden until play clicked upon 
+            // hidden until player clicked upon 
             <p>dotabuff</p>
             <p>the other data tracker thingy</p>
             <p>links to other accounts if he has multiple</p>
