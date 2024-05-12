@@ -1,4 +1,4 @@
-'user server'
+'use server'
 import NextAuth from 'next-auth';
 import SteamProvider, { PROVIDER_ID } from 'next-auth-steam';
 import { Adapter } from 'next-auth/adapters';
