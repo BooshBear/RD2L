@@ -1,23 +1,28 @@
-const MongoClient = require('mongodb').MongoClient;
-let cachedDb: any = null;
+import { MongoClient } from "mongodb";
+
+let cachedClientPromise: Promise<MongoClient> | null = null;
 
 export const connectToDatabase = async () => {
-  if (cachedDb) {
-    console.log('👌 Using existing connection');
-    return Promise.resolve(cachedDb);
-  }
+    if (cachedClientPromise) {
+        console.log('👌 Using existing connection');
+        return Promise.resolve(cachedClientPromise);
+    }
 
-  return MongoClient.connect(process.env.MONGODB_URI, {
-    
-  })
-    .then((client:any) => {
-      let db = client.db('test');
-      console.log('🔥 New DB Connection');
-      cachedDb = db;
-      return cachedDb;
-    })
-    .catch((error:any) => {
-      console.log('Mongo connect Error');
-      console.log(error);
-    });
+    const uri = process.env.MONGODB_URI;
+    if (!uri) {
+      throw new Error('Missing environment variable: "MONGODB_URI"');
+    }
+    const options = {};
+
+    const client = new MongoClient(uri, options);
+
+    try {
+        await client.connect();
+        console.log('🔥 New DB Connection');
+        cachedClientPromise = Promise.resolve(client);
+        return cachedClientPromise;
+    } catch (error) {
+        console.error('MongoDB connection error:', error);
+        throw error;
+    }
 };

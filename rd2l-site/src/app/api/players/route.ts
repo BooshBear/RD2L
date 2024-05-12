@@ -8,7 +8,8 @@ export async function GET(req: NextApiRequest) {
         return NextResponse.json({ error: 'Not Allowed' }, { status: 405 })
     }
     try {
-        const database = await connectToDatabase();
+        const dbConnect = await connectToDatabase();
+        const database = dbConnect.db('test');
         const players = await database.collection('users').find({}).toArray();
         console.log(players)
         return NextResponse.json(players, { status: 200 })
