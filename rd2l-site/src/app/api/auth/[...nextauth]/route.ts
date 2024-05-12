@@ -1,14 +1,18 @@
-'use server'
 import NextAuth from 'next-auth';
 import SteamProvider, { PROVIDER_ID } from 'next-auth-steam';
 import { Adapter } from 'next-auth/adapters';
 import { MongoDBAdapter } from '@auth/mongodb-adapter';
 import { connectToDatabase } from '../../../../lib/mongoDBConnect';
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextRequest } from 'next/server';
 
-async function handler(req: NextApiRequest, res: NextApiResponse) {
+interface RouteHandlerContext {
+  params: { nextauth: string[] }
+}
+
+async function handler(req: NextRequest, context: RouteHandlerContext) {
   try {
-    return NextAuth(req, res, {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    return await NextAuth(req, context, {
       providers: [
         SteamProvider(req, {
           clientSecret: process.env.STEAM_SECRET!,
@@ -35,9 +39,8 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     });
   } catch (error) {
     console.error('Error connecting to the database:', error);
-    return res.status(500).json({ message: 'Internal Server Error' });
+    return { status: 500, message: 'Internal Server Error' };
   }
 }
-
 
 export { handler as GET, handler as POST };
