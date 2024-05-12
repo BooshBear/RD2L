@@ -2,7 +2,7 @@ import NextAuth from 'next-auth';
 import SteamProvider, {PROVIDER_ID} from 'next-auth-steam';
 import { Adapter } from 'next-auth/adapters';
 import { MongoDBAdapter } from '@auth/mongodb-adapter';
-import clientPromise from '../../../../lib/mongoDBConnect';
+import {connectToDatabase} from '../../../../lib/mongoDBConnect';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -31,7 +31,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
         return session;
     }
     },
-    adapter: await MongoDBAdapter(clientPromise) as Adapter,
+    adapter: await MongoDBAdapter(connectToDatabase()) as Adapter,
   })
 }
 

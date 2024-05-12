@@ -1,19 +1,18 @@
-import { NextApiRequest, NextApiResponse } from 'next';
-import clientPromise from '@/lib/mongoDBConnect';
+'use server'
+import type { NextApiRequest } from 'next'
+import {connectToDatabase} from '@/lib/mongoDBConnect';
+import { NextResponse } from 'next/server';
 
-async function handler(req: NextApiRequest, res: NextApiResponse) {
+export async function GET(req: NextApiRequest) {
     if (req.method !== 'GET') {
-        return res.status(405).json({ message: 'Method Not Allowed' });
+        return NextResponse.json({ error: 'Not Allowed' }, { status: 405 })
     }
-
     try {
-        const database = (await clientPromise).db('test');
+        const database = await connectToDatabase();
         const players = await database.collection('users').find({}).toArray();
-        res.status(200).json(players);
+        console.log(players)
+        return NextResponse.json(players, { status: 200 })
     } catch (error) {
-        console.error('Error fetching players:', error);
-        res.status(500).json({ message: 'Internal Server Error' });
+        return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })
     }
 }
-
-export {handler as GET}

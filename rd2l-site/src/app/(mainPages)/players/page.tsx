@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 
 interface Player {
-    id: number;
+    _id: number;
     name: string;
     // Add other properties as needed
 }
@@ -14,14 +14,14 @@ const Players = () => {
     useEffect(() => {
         const fetchPlayers = async () => {
             try {
-                const response = await fetch('/api/players');
-                const playersData = await response.json();
-                setFilteredPlayers(playersData);
+                const res = await fetch('/api/players');
+                const playersData = await res;
+                setFilteredPlayers(await playersData.json());
             } catch (error) {
                 console.error('Error fetching players:', error);
             }
         };
-
+    
         fetchPlayers();
     }, []);
 
@@ -49,7 +49,7 @@ const Players = () => {
                 </form>
                 <div>
                     {filteredPlayers.map(player => (
-                        <div key={player.id}>
+                        <div key={player._id}>
                             <div>{player.name}</div>
                             {/* Render other player information here */}
                         </div>
