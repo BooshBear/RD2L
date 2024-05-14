@@ -11,7 +11,7 @@ interface RouteHandlerContext {
 
 async function handler(req: NextRequest, context: RouteHandlerContext) {
   try {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    
     return await NextAuth(req, context, {
       providers: [
         SteamProvider(req, {

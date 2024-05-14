@@ -1,9 +1,9 @@
 'use server'
-import type { NextApiRequest } from 'next'
+import type { NextRequest } from 'next/server'
 import {connectToDatabase} from '@/lib/mongoDBConnect';
 import { NextResponse } from 'next/server';
 
-export async function GET(req: NextApiRequest) {
+export async function GET(req: NextRequest) {
     if (req.method !== 'GET') {
         return NextResponse.json({ error: 'Not Allowed' }, { status: 405 })
     }
@@ -11,7 +11,7 @@ export async function GET(req: NextApiRequest) {
         const dbConnect = await connectToDatabase();
         const database = dbConnect.db('test');
         const players = await database.collection('users').find({}).toArray();
-        console.log(players)
+        // console.log(players)
         return NextResponse.json(players, { status: 200 })
     } catch (error) {
         return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })
