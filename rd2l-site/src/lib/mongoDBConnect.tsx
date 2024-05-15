@@ -1,51 +1,35 @@
-import { MongoClient } from "mongodb";
+import { MongoClient, Db } from "mongodb";
 
 let cachedClientPromise: Promise<MongoClient> | null = null;
+let cachedDb: Db | null = null;
 
 export const connectToDatabase = async () => {
-    if (cachedClientPromise) {
+    if (cachedClientPromise && cachedDb) {
         console.log('👌 Using existing connection');
-        return cachedClientPromise;
+        return cachedClientPromise.then(client => ({ client, db: client.db() }));
     }
 
     const uri = process.env.MONGODB_URI;
     if (!uri) {
-      throw new Error('Missing environment variable: "MONGODB_URI"');
+        throw new Error('Missing environment variable: "MONGODB_URI"');
     }
+
     const options = {};
 
     const client = new MongoClient(uri, options);
 
-    try {
-        await client.connect();
-        console.log('🔥 New DB Connection');
-        cachedClientPromise = Promise.resolve(client);
-        return cachedClientPromise;
-    } catch (error) {
-        console.error('MongoDB connection error:', error);
-        throw error;
-    }
-};
+    cachedClientPromise = client.connect()
+        .then(client => {
+            console.log('🔥 New DB Connection');
+            cachedClientPromise = Promise.resolve(client);
+            cachedDb = client.db();
+            return client;
+        })
+        .catch(error => {
+            cachedClientPromise = null;
+            console.error('MongoDB connection error:', error);
+            throw error;
+        });
 
-export const updateDB = async () => {
-    const uri = process.env.MONGODB_URI;
-    if (!uri) {
-      throw new Error('Missing environment variable: "MONGODB_URI"');
-    }
-    const options = {};
-
-    const client = new MongoClient(uri, options);
-
-    try {
-        // Reconnect to update the cache
-        await client.connect();
-        console.log('🔄 Updated DB Connection');
-
-        // Update the cached client promise
-        cachedClientPromise = Promise.resolve(client);
-        return cachedClientPromise;
-    } catch (error) {
-        console.error('MongoDB connection error:', error);
-        throw error;
-    }
+    return cachedClientPromise.then(client => ({ client, db: client.db() }));
 };

@@ -2,7 +2,7 @@ import NextAuth from 'next-auth';
 import SteamProvider, { PROVIDER_ID } from 'next-auth-steam';
 import { Adapter } from 'next-auth/adapters';
 import { MongoDBAdapter } from '@auth/mongodb-adapter';
-import { updateDB } from '../../../../lib/mongoDBConnect';
+import { connectToDatabase } from '../../../../lib/mongoDBConnect';
 import { NextRequest } from 'next/server';
 
 interface RouteHandlerContext {
@@ -15,12 +15,11 @@ async function handler(req: NextRequest, context: RouteHandlerContext) {
         ? 'https://rd2l.vercel.app/api/auth/callback/'
         : 'http://localhost:3000/api/auth/callback/';
   try {
-    
+    const { client, db } = await connectToDatabase();
     return await NextAuth(req, context, {
       providers: [
         SteamProvider(req, {
           clientSecret: process.env.STEAM_API_SECRET!,
-          
           callbackUrl
         })
       ],
@@ -40,7 +39,7 @@ async function handler(req: NextRequest, context: RouteHandlerContext) {
           return session;
         }
       },
-      adapter: MongoDBAdapter(updateDB()) as Adapter,
+      adapter: MongoDBAdapter(Promise.resolve(client)) as Adapter,
     });
   } catch (error) {
     console.error('Error connecting to the database:', error);
