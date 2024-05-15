@@ -1,10 +1,9 @@
 'use server'
 import { NextRequest, NextResponse } from 'next/server'
 import {connectToDatabase} from '@/lib/mongoDBConnect';
-import type { NextApiRequest } from 'next';
 
-export async function GET(request: NextRequest, req: NextApiRequest) {
-    if (request.method !== 'GET') {
+export async function GET(req: NextRequest) {
+    if (req.method !== 'GET') {
         return NextResponse.json({ error: 'Not Allowed' }, { status: 405 })
     }
     try {

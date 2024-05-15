@@ -40,7 +40,6 @@ async function handler(req: NextRequest, context: RouteHandlerContext) {
         }
       },
       adapter: MongoDBAdapter(updateDB()) as Adapter,
-      secret: process.env.NEXTAUTH_SECRET,
     });
   } catch (error) {
     console.error('Error connecting to the database:', error);

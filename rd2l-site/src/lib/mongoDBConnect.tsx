@@ -35,6 +35,10 @@ export const updateDB = async () => {
     const options = {};
 
     const client = new MongoClient(uri, options);
+    if (cachedClientPromise) {
+        console.log('👌 Using existing connection');
+        client.close()
+    }
 
     try {
         await client.connect();
