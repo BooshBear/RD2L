@@ -9,7 +9,7 @@ export async function GET(req: NextRequest) {
     }
     try {
         const dbConnect = await connectToDatabase();
-        const database = dbConnect.db('test');
+        const database = dbConnect.db('ActiveDatabase');
         const players = await database.collection('users').find({}).toArray();
         // console.log(players)
         return NextResponse.json(players, { status: 200 })
