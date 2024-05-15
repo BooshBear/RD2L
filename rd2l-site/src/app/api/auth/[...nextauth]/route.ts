@@ -15,7 +15,7 @@ async function handler(req: NextRequest, context: RouteHandlerContext) {
         ? 'https://rd2l.vercel.app/api/auth/callback/'
         : 'http://localhost:3000/api/auth/callback/';
   try {
-    const { client, db } = await connectToDatabase();
+    const { client,db } = await connectToDatabase();
     return await NextAuth(req, context, {
       providers: [
         SteamProvider(req, {
@@ -37,7 +37,24 @@ async function handler(req: NextRequest, context: RouteHandlerContext) {
             session.user.steam = token.steam;
           }
           return session;
-        }
+        },
+        async signIn({ user, account, profile }) {
+          const existingUser = await db.collection('users').findOne({ userId: user.id });
+          if (existingUser) {
+              await db.collection('users').updateOne(
+                  { userId: user.id },
+                  { $set: { ...user, lastLogin: new Date() } }
+              );
+          } else {
+              await db.collection('users').insertOne({
+                  userId: user.id,
+                  ...user,
+                  createdAt: new Date(),
+                  lastLogin: new Date()
+              });
+          }
+          return true;
+      }
       },
       adapter: MongoDBAdapter(Promise.resolve(client)) as Adapter,
     });
