@@ -10,13 +10,17 @@ interface RouteHandlerContext {
 }
 
 async function handler(req: NextRequest, context: RouteHandlerContext) {
+  const callbackUrl =
+      process.env.NODE_ENV === 'production'
+        ? 'https://your-actual-site.com/api/auth/callback'
+        : 'http://localhost:3000/api/auth/callback';
   try {
     
     return await NextAuth(req, context, {
       providers: [
         SteamProvider(req, {
           clientSecret: process.env.STEAM_SECRET!,
-          callbackUrl: 'http://localhost:3000/api/auth/callback'
+          callbackUrl
         })
       ],
       callbacks: {
