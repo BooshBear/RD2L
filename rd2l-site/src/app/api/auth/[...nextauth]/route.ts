@@ -19,7 +19,8 @@ async function handler(req: NextRequest, context: RouteHandlerContext) {
     return await NextAuth(req, context, {
       providers: [
         SteamProvider(req, {
-          clientSecret: process.env.STEAM_SECRET!,
+          clientSecret: process.env.STEAM_API_SECRET!,
+          
           callbackUrl
         })
       ],
