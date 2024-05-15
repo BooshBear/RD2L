@@ -2,7 +2,7 @@ import NextAuth from 'next-auth';
 import SteamProvider, { PROVIDER_ID } from 'next-auth-steam';
 import { Adapter } from 'next-auth/adapters';
 import { MongoDBAdapter } from '@auth/mongodb-adapter';
-import { connectToDatabase } from '../../../../lib/mongoDBConnect';
+import { updateDB } from '../../../../lib/mongoDBConnect';
 import { NextRequest } from 'next/server';
 
 interface RouteHandlerContext {
@@ -39,7 +39,8 @@ async function handler(req: NextRequest, context: RouteHandlerContext) {
           return session;
         }
       },
-      adapter: MongoDBAdapter(connectToDatabase()) as Adapter,
+      adapter: MongoDBAdapter(updateDB()) as Adapter,
+      secret: process.env.NEXTAUTH_SECRET,
     });
   } catch (error) {
     console.error('Error connecting to the database:', error);
