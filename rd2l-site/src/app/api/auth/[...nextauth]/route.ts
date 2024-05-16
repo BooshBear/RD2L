@@ -1,7 +1,7 @@
 import NextAuth from 'next-auth';
 import SteamProvider, { PROVIDER_ID } from 'next-auth-steam';
 import { Adapter } from 'next-auth/adapters';
-import { connectToDatabase, invalidateCache } from '../../../../lib/mongoDBConnect';
+import { connectToDatabase } from '../../../../lib/mongoDBConnect';
 import { NextRequest } from 'next/server';
 import { MongoDBAdapter } from '@auth/mongodb-adapter';
 
@@ -33,17 +33,6 @@ async function handler(req: NextRequest, context: RouteHandlerContext) {
             token.steam = profile;
           }
           return token;
-        },
-        async session({ session, token }) {
-          if (token && 'steam' in token) {
-            // @ts-expect-error
-            session.user.steam = token.steam;
-          }
-          return session;
-        },
-        async signIn({ user, account, profile }) {
-          invalidateCache();
-          return true;
         }
       }
     });
