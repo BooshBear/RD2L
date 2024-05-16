@@ -7,7 +7,7 @@ let cachedDb: Db | null = null;
 export const connectToDatabase = async () => {
     if (cachedClientPromise && cachedDb) {
         console.log('👌 Using existing connection');
-        return {client: cachedClientPromise, db: cachedDb!};
+        return cachedClientPromise.then(client => ({ client, db: cachedDb! }));
     }
     const uri = process.env.MONGODB_URI;
     if (!uri) {

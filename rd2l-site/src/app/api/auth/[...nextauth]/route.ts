@@ -2,9 +2,8 @@ import NextAuth from 'next-auth';
 import SteamProvider, { PROVIDER_ID } from 'next-auth-steam';
 import { Adapter } from 'next-auth/adapters';
 import { MongoDBAdapter } from '@auth/mongodb-adapter';
-import { connectToDatabase } from '../../../../lib/mongoDBConnect';
+import { connectToDatabase, invalidateCache } from '../../../../lib/mongoDBConnect';
 import { NextRequest } from 'next/server';
-import { MongoClient } from 'mongodb';
 
 interface RouteHandlerContext {
   params: { nextauth: string[] }
@@ -16,7 +15,9 @@ async function handler(req: NextRequest, context: RouteHandlerContext) {
         ? 'https://rd2l.vercel.app/api/auth/callback/'
         : 'http://localhost:3000/api/auth/callback/';
   try {
-    const { client } = await connectToDatabase();
+    const { client, db } = await connectToDatabase();
+
+    const clientPromise = Promise.resolve(client);
     return await NextAuth(req, context, {
       providers: [
         SteamProvider(req, {
@@ -24,7 +25,7 @@ async function handler(req: NextRequest, context: RouteHandlerContext) {
           callbackUrl
         })
       ],
-      adapter: MongoDBAdapter(client as Promise<MongoClient>) as Adapter,
+      adapter: MongoDBAdapter(clientPromise) as Adapter,
       callbacks: {
         async jwt({ token, account, profile }) {
           if (account?.provider === PROVIDER_ID) {
@@ -40,7 +41,26 @@ async function handler(req: NextRequest, context: RouteHandlerContext) {
           }
           return session;
         },
+        async signIn({ user, account, profile }) {
+          const existingUser = await db.collection('users').findOne({ userId: user.id });
+          if (existingUser) {
+              await db.collection('users').updateOne(
+                  { userId: user.id },
+                  { $set: { ...user, lastLogin: new Date() } }
+              );
+          } else {
+              await db.collection('users').insertOne({
+                  userId: user.id,
+                  ...user,
+                  createdAt: new Date(),
+                  lastLogin: new Date()
+              });
+          }
+          // Invalidate cache after database changes
+          invalidateCache();
+          return true;
         }
+      }
     });
   } catch (error) {
     console.error('Error connecting to the database:', error);
