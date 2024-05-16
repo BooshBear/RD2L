@@ -3,7 +3,6 @@ import SteamProvider, { PROVIDER_ID } from 'next-auth-steam';
 import { Adapter } from 'next-auth/adapters';
 import { connectToDatabase, invalidateCache } from '../../../../lib/mongoDBConnect';
 import { NextRequest } from 'next/server';
-import { CustomMongoDBAdapter } from '@/lib/customAdapter';
 import { MongoDBAdapter } from '@auth/mongodb-adapter';
 
 interface RouteHandlerContext {
