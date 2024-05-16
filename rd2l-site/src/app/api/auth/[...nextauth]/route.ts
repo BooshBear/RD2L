@@ -39,6 +39,23 @@ async function handler(req: NextRequest, context: RouteHandlerContext) {
           }
           return session;
         },
+        async signIn({ user, account, profile }) {
+          const existingUser = await db.collection('users').findOne({ email: user.email });
+          if (existingUser) {
+              await db.collection('users').updateOne(
+                  { userId: user.id },
+                  { $set: { ...user, lastLogin: new Date() } }
+              );
+          } else {
+              await db.collection('users').insertOne({
+                  email: user.email,
+                  ...user,
+                  createdAt: new Date(),
+                  lastLogin: new Date()
+              });
+          }
+          return true;
+        }
       },
       adapter: MongoDBAdapter(client as Promise<MongoClient>) as Adapter,
     });
