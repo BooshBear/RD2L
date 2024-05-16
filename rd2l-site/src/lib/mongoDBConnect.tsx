@@ -1,11 +1,11 @@
 import { MongoClient, Db } from 'mongodb';
 
-let cachedClient: MongoClient | null = null;
+let cachedClient: Promise<MongoClient> | null = null;
 
 export const connectToDatabase = async () => {
     if (cachedClient) {
         console.log('👌 Using existing connection');
-        return { client: cachedClient, db: cachedClient.db() };
+        return { client: cachedClient, db: (await cachedClient).db() };
     }
 
     const uri = process.env.MONGODB_URI;
@@ -20,7 +20,7 @@ export const connectToDatabase = async () => {
     try {
         await client.connect();
         console.log('🔥 New DB Connection');
-        cachedClient = client;
+        cachedClient = Promise.resolve(client);
         return { client, db: client.db() };
     } catch (error) {
         console.error('MongoDB connection error:', error);

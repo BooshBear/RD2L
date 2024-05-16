@@ -4,6 +4,7 @@ import { Adapter } from 'next-auth/adapters';
 import { MongoDBAdapter } from '@auth/mongodb-adapter';
 import { connectToDatabase } from '../../../../lib/mongoDBConnect';
 import { NextRequest } from 'next/server';
+import { MongoClient } from 'mongodb';
 
 interface RouteHandlerContext {
   params: { nextauth: string[] }
@@ -38,25 +39,8 @@ async function handler(req: NextRequest, context: RouteHandlerContext) {
           }
           return session;
         },
-        async signIn({ user, account, profile }) {
-          const existingUser = await db.collection('users').findOne({ userId: user.id });
-          if (existingUser) {
-              await db.collection('users').updateOne(
-                  { userId: user.id },
-                  { $set: { ...user, lastLogin: new Date() } }
-              );
-          } else {
-              await db.collection('users').insertOne({
-                  userId: user.id,
-                  ...user,
-                  createdAt: new Date(),
-                  lastLogin: new Date()
-              });
-          }
-          return true;
-      }
       },
-      adapter: MongoDBAdapter(Promise.resolve(client)) as Adapter,
+      adapter: MongoDBAdapter(client as Promise<MongoClient>) as Adapter,
     });
   } catch (error) {
     console.error('Error connecting to the database:', error);
