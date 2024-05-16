@@ -1,9 +1,10 @@
 import NextAuth from 'next-auth';
 import SteamProvider, { PROVIDER_ID } from 'next-auth-steam';
 import { Adapter } from 'next-auth/adapters';
-import { MongoDBAdapter } from '@auth/mongodb-adapter';
 import { connectToDatabase, invalidateCache } from '../../../../lib/mongoDBConnect';
 import { NextRequest } from 'next/server';
+import { CustomMongoDBAdapter } from '@/lib/customAdapter';
+import { MongoDBAdapter } from '@auth/mongodb-adapter';
 
 interface RouteHandlerContext {
   params: { nextauth: string[] }
@@ -42,21 +43,6 @@ async function handler(req: NextRequest, context: RouteHandlerContext) {
           return session;
         },
         async signIn({ user, account, profile }) {
-          const existingUser = await db.collection('users').findOne({ userId: user.id });
-          if (existingUser) {
-              await db.collection('users').updateOne(
-                  { userId: user.id },
-                  { $set: { ...user, lastLogin: new Date() } }
-              );
-          } else {
-              await db.collection('users').insertOne({
-                  userId: user.id,
-                  ...user,
-                  createdAt: new Date(),
-                  lastLogin: new Date()
-              });
-          }
-          // Invalidate cache after database changes
           invalidateCache();
           return true;
         }
