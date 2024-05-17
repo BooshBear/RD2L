@@ -2,7 +2,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import {connectToDatabase} from '@/lib/mongoDBConnect';
 
-export async function GET(req: NextRequest) {
+export async function GET(req: NextRequest, res: NextResponse) {
     if (req.method !== 'GET') {
         return NextResponse.json({ error: 'Not Allowed' }, { status: 405 })
     }
