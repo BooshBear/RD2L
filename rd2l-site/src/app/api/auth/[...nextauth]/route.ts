@@ -1,45 +1,9 @@
-import NextAuth from 'next-auth';
-import SteamProvider, { PROVIDER_ID } from 'next-auth-steam';
-import { Adapter } from 'next-auth/adapters';
-import { connectToDatabase } from '../../../../lib/mongoDBConnect';
-import { NextRequest } from 'next/server';
-import { MongoDBAdapter } from '@auth/mongodb-adapter';
+import NextAuth from 'next-auth/next'
+import { getAuthOptions } from '../../../auth'
 
-interface RouteHandlerContext {
-  params: { nextauth: string[] }
+import type { NextRequest } from 'next/server'
+
+async function handler(req: NextRequest, ctx: { params: { nextauth: string[] } }) {
+  return NextAuth(req, ctx, getAuthOptions(req))
 }
-
-async function handler(req: NextRequest, context: RouteHandlerContext) {
-  const callbackUrl =
-      process.env.NODE_ENV === 'production'
-        ? 'https://rd2l.vercel.app/api/auth/callback/'
-        : 'http://localhost:3000/api/auth/callback/';
-  try {
-    const { client, db } = await connectToDatabase();
-
-    const clientPromise = Promise.resolve(client);
-    return await NextAuth(req, context, {
-      providers: [
-        SteamProvider(req, {
-          clientSecret: process.env.STEAM_API_SECRET!,
-          callbackUrl
-        })
-      ],
-      adapter: MongoDBAdapter(clientPromise) as Adapter,
-      callbacks: {
-        async jwt({ token, account, profile }) {
-          if (account?.provider === PROVIDER_ID) {
-            console.log(token);
-            token.steam = profile;
-          }
-          return token;
-        }
-      }
-    });
-  } catch (error) {
-    console.error('Error connecting to the database:', error);
-    return { status: 500, message: 'Internal Server Error' };
-  }
-}
-
 export { handler as GET, handler as POST };
