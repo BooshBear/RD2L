@@ -20,21 +20,6 @@ export function getAuthOptions(req?: NextRequest): AuthOptions {
           })
         ]
       : [],
-    callbacks: {
-      jwt({ token, account, profile }) {
-        if (account?.provider === PROVIDER_ID) {
-          token.steam = profile
-        }
-        return token
-      },
-      session({ session, token }) {
-        if (token && 'steam' in token) {
-          // @ts-expect-error
-          session.user.steam = token.steam
-        }
-        return session
-      },
-    },
     adapter: MongoDBAdapter(clientPromise) as Adapter,
     secret: process.env.NEXTAUTH_SECRET,
   }
