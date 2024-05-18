@@ -21,6 +21,5 @@ export function getAuthOptions(req?: NextRequest): AuthOptions {
         ]
       : [],
     adapter: MongoDBAdapter(clientPromise) as Adapter,
-    secret: process.env.NEXTAUTH_SECRET,
   }
 }
