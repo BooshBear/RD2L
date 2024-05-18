@@ -3,7 +3,7 @@ import SteamProvider, { PROVIDER_ID } from 'next-auth-steam'
 import type { AuthOptions } from 'next-auth'
 import type { NextRequest } from 'next/server'
 import { MongoDBAdapter } from '@auth/mongodb-adapter';
-import clientPromise from '@/lib/mongoDBConnect';
+import {connectToDatabase, resetDatabaseConnection} from '@/lib/mongoDBConnect';
 import { Adapter } from 'next-auth/adapters';
 
 export function getAuthOptions(req?: NextRequest): AuthOptions {
@@ -20,6 +20,33 @@ export function getAuthOptions(req?: NextRequest): AuthOptions {
           })
         ]
       : [],
-    adapter: MongoDBAdapter(clientPromise) as Adapter,
+      callbacks: {
+        async signIn({ user }) {
+          try {
+            resetDatabaseConnection(); // Reset database connection
+            const client = await connectToDatabase();
+            const db = client.db();
+            const existingUser = await db.collection('users').findOne({ userId: user.id });
+            if (existingUser) {
+              await db.collection('users').updateOne(
+                { userId: user.id },
+                { $set: { lastLogin: new Date() } }
+              );
+            } else {
+              await db.collection('users').insertOne({
+                userId: user.id,
+                // Other user data fields
+                createdAt: new Date(),
+                lastLogin: new Date()
+              });
+            }
+            return true;
+          } catch (error) {
+            console.error('Error updating database:', error);
+            return false;
+          }
+        },
+      },
+    adapter: MongoDBAdapter(connectToDatabase()) as Adapter,
   }
 }

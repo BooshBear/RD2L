@@ -1,11 +1,11 @@
 'use server'
 import { NextRequest, NextResponse } from 'next/server'
-import clientPromise from '@/lib/mongoDBConnect';
+import {connectToDatabase} from '@/lib/mongoDBConnect';
 
 export async function GET(req: NextRequest, res: NextResponse) {
     console.log("Received GET request to /api/players");
     try {
-        const client = clientPromise;
+        const client = connectToDatabase();
         const db = (await client).db()
         const players = await db.collection('users').find({}).toArray();
         console.log("Fetched players:", players);

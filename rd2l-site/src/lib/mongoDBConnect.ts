@@ -1,39 +1,34 @@
-import { MongoClient, ServerApiVersion } from 'mongodb';
-export const dynamic = 'force-dynamic'
+// src/lib/mongoDBConnect.ts
+import { MongoClient } from 'mongodb';
 
-if (!process.env.MONGODB_URI) {
-    throw new Error('Invalid/Missing environment variable: "MONGODB_URI"')
+let cachedClientPromise: Promise<MongoClient> | null = null;
+
+export const connectToDatabase = async (): Promise<MongoClient> => {
+  if (cachedClientPromise) {
+    console.log('👌 Using existing connection');
+    return cachedClientPromise;
   }
-   
-  const uri = process.env.MONGODB_URI
-  const options = {
-    serverApi: {
-      version: ServerApiVersion.v1,
-      strict: true,
-      deprecationErrors: true,
-    },
+
+  const uri = process.env.MONGODB_URI;
+  if (!uri) {
+    throw new Error('Missing environment variable: "MONGODB_URI"');
   }
-   
-  let client
-  let clientPromise: Promise<MongoClient>
-   
-  if (process.env.NODE_ENV === "development") {
-    // In development mode, use a global variable so that the value
-    // is preserved across module reloads caused by HMR (Hot Module Replacement).
-    let globalWithMongo = global as typeof globalThis & {
-      _mongoClientPromise?: Promise<MongoClient>
-    }
-   
-    if (!globalWithMongo._mongoClientPromise) {
-      client = new MongoClient(uri, options)
-      globalWithMongo._mongoClientPromise = client.connect()
-    }
-    clientPromise = globalWithMongo._mongoClientPromise
-  } else {
-    // In production mode, it's best to not use a global variable.
-    client = new MongoClient(uri, options)
-    clientPromise = client.connect()
+  const options = {};
+
+  const client = new MongoClient(uri, options);
+
+  try {
+    await client.connect();
+    console.log('🔥 New DB Connection');
+    cachedClientPromise = Promise.resolve(client);
+    return cachedClientPromise;
+  } catch (error) {
+    console.error('MongoDB connection error:', error);
+    throw error;
   }
-    // Export a module-scoped MongoClient promise. By doing this in a
-    // separate module, the client can be shared across functions.
-export default clientPromise;
+};
+
+export const resetDatabaseConnection = (): void => {
+  console.log('Resetting database connection');
+  cachedClientPromise = null;
+};
