@@ -1,11 +1,13 @@
 'use client'
 import React, { useState, useEffect } from 'react';
+export const dynamic = 'force-dynamic'
 
 interface Player {
     _id: number;
     name: string;
     // Add other properties as needed
 }
+
 
 const FetchPlayers = () => {
     const [searchQuery, setSearchQuery] = useState('');
