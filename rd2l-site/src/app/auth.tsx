@@ -33,7 +33,7 @@ export function getAuthOptions(req?: NextRequest): AuthOptions {
           session.user.steam = token.steam
         }
         return session
-      }
+      },
     },
     adapter: MongoDBAdapter(clientPromise) as Adapter,
     secret: process.env.NEXTAUTH_SECRET,
