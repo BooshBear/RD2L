@@ -2,6 +2,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import {connectToDatabase} from '@/lib/mongoDBConnect';
 
+export const dynamic = 'force-dynamic';
 export async function GET(req: NextRequest, res: NextResponse) {
     console.log("Received GET request to /api/players");
     try {
