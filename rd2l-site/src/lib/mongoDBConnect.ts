@@ -1,6 +1,6 @@
 // src/lib/mongoDBConnect.ts
 import { MongoClient } from 'mongodb';
-
+export const dynamic = 'force-dynamic';
 let cachedClientPromise: Promise<MongoClient> | null = null;
 
 export const connectToDatabase = async (): Promise<MongoClient> => {

@@ -8,7 +8,6 @@ interface Player {
     // Add other properties as needed
 }
 
-
 const FetchPlayers = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [filteredPlayers, setFilteredPlayers] = useState<Player[]>([]);

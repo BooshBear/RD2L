@@ -1,7 +1,5 @@
 import FetchPlayers from "@/components/fetchplayers";
 
-export const dynamic = 'force-dynamic'
-
 export default function Players() {
 
     return (
