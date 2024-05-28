@@ -27,8 +27,3 @@ export const connectToDatabase = async (): Promise<MongoClient> => {
     throw error;
   }
 };
-
-export const resetDatabaseConnection = (): void => {
-  console.log('Resetting database connection');
-  cachedClientPromise = null;
-};
