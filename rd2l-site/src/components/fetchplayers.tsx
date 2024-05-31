@@ -9,14 +9,16 @@ interface Player {
 
 const FetchPlayers = () => {
     const [searchQuery, setSearchQuery] = useState('');
+    const [players, setPlayers] = useState<Player[]>([]);
     const [filteredPlayers, setFilteredPlayers] = useState<Player[]>([]);
 
     useEffect(() => {
         const fetchPlayers = async () => {
             try {
                 const res = await fetch('/api/players');
-                const playersData = await res;
-                setFilteredPlayers(await playersData.json());
+                const playersData = await res.json();
+                setPlayers(playersData);
+                setFilteredPlayers(playersData);
             } catch (error) {
                 console.error('Error fetching players:', error);
             }
@@ -29,11 +31,16 @@ const FetchPlayers = () => {
         const query = event.target.value;
         setSearchQuery(query);
     
-        setFilteredPlayers(prevFilteredPlayers =>
-            prevFilteredPlayers.filter(player =>
-                player.name.toLowerCase().includes(query.toLowerCase())
-            )
-        );
+        if (query === '') {
+            return setFilteredPlayers(players);
+        } else {
+            setFilteredPlayers(players.filter(player => {
+                if (player.name) {
+                    return player.name.toLowerCase().includes(query.toLowerCase())
+                }  
+            }
+            ));
+        }
     };
 
     return (

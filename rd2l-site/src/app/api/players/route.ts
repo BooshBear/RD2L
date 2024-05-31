@@ -9,7 +9,6 @@ export async function GET(req: NextRequest, res: NextResponse) {
         const client = connectToDatabase();
         const db = (await client).db()
         const players = await db.collection('users').find({}).toArray();
-        console.log("Fetched players:", players);
         return NextResponse.json(players, { status: 200 });
     } catch (error) {
         console.error("Error fetching players:", error);
