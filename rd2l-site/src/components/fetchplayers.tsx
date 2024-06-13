@@ -45,8 +45,8 @@ const FetchPlayers = () => {
 
     return (
         <main className="flex min-h-screen flex-col items-center p-10 gap-2">
-            <div className='flex flex-col items-center gap-2 min-w-[600px] min-h-[200px]'>
-                <form>
+            <div className='grid grid-cols-4 place-items-center gap-2 min-w-[600px] min-h-[200px]'>
+                <form className='col-span-4'>
                     <input
                         placeholder="Search Player Name"
                         className="bg-black rounded-[5px] p-2 m-2 text-center text-white shadow-lg shadow-[#9b3839] hover:border-2 hover:border-[#9b3839]"
@@ -54,14 +54,12 @@ const FetchPlayers = () => {
                         onChange={handleSearch}
                     />
                 </form>
-                <div>
-                    {filteredPlayers.map(player => (
-                        <div key={player._id}>
-                            <div>{player.name}</div>
-                            {/* Render other player information here */}
-                        </div>
-                    ))}
-                </div>
+                {filteredPlayers.map(player => (
+                    <div key={player._id}>
+                        <div>{player.name}</div>
+                        {/* Render other player information here */}
+                    </div>
+                ))}
             </div>
         </main>
     );
