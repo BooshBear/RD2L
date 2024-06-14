@@ -55,8 +55,9 @@ const FetchPlayers = () => {
                     />
                 </form>
                 {filteredPlayers.map(player => (
-                    <div key={player._id}>
+                    <div key={player._id} className='bg-[#9b383a8a] rounded-[0.5rem] p-2 border-black border'>
                         <div>{player.name}</div>
+
                         {/* Render other player information here */}
                     </div>
                 ))}
