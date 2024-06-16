@@ -1,5 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react';
+import { Button } from './ui/button';
+import Link from 'next/link';
 
 interface Player {
     _id: number;
@@ -44,25 +46,23 @@ const FetchPlayers = () => {
     };
 
     return (
-        <main className="flex min-h-screen flex-col items-center p-10 gap-2">
-            <div className='grid grid-cols-4 place-items-center gap-2 min-w-[600px] min-h-[200px]'>
-                <form className='col-span-4'>
-                    <input
-                        placeholder="Search Player Name"
-                        className="bg-black rounded-[5px] p-2 m-2 text-center text-white shadow-lg shadow-[#9b3839] hover:border-2 hover:border-[#9b3839]"
-                        value={searchQuery}
-                        onChange={handleSearch}
-                    />
-                </form>
-                {filteredPlayers.map(player => (
-                    <div key={player._id} className='bg-[#9b383a8a] rounded-[0.5rem] p-2 border-black border'>
-                        <div>{player.name}</div>
-
-                        {/* Render other player information here */}
-                    </div>
-                ))}
-            </div>
-        </main>
+        <div className='grid grid-cols-4 place-items-center gap-2 min-w-[600px] min-h-[200px]'>
+            <form className='col-span-4'>
+                <input
+                    placeholder="Search Player Name"
+                    className="bg-black rounded-[5px] p-2 m-2 text-center text-white shadow-lg shadow-[#9b3839] hover:border-2 hover:border-[#9b3839]"
+                    value={searchQuery}
+                    onChange={handleSearch}
+                />
+            </form>
+            {filteredPlayers.map(player => (
+                <div key={player._id}>
+                    <Button variant="outline" className='rounded-[0.3rem] hover:bg-zinc-200 '><Link href={`/players/${player.name}`}>{player.name}</Link></Button>
+                    
+                    {/* Render other player information here */}
+                </div>
+            ))}
+        </div>
     );
 };
 

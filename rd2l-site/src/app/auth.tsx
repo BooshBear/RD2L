@@ -21,31 +21,10 @@ export function getAuthOptions(req?: NextRequest): AuthOptions {
         ]
       : [],
       callbacks: {
-        async signIn({ user }) {
-          try {
-            const client = await connectToDatabase();
-            const db = client.db();
-            const existingUser = await db.collection('users').findOne({ userId: user.id });
-            if (existingUser) {
-              await db.collection('users').updateOne(
-                { userId: user.id },
-                { $set: { lastLogin: new Date() } }
-              );
-            } else {
-              await db.collection('users').insertOne({
-                userId: user.id,
-                // Other user data fields
-                createdAt: new Date(),
-                lastLogin: new Date()
-              });
-            }
-            return true;
-          } catch (error) {
-            console.error('Error updating database:', error);
-            return false;
-          }
-        },
-      },
+        async signIn({ user, account, profile }) {
+          return true;
+        }
+      },  
     adapter: MongoDBAdapter(connectToDatabase()) as Adapter,
   }
 }
