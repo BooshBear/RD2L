@@ -30,6 +30,7 @@ const PlayerPage = async ({ params }: PlayerPageProps) => {
     return (
         <main className="flex min-h-screen flex-col items-center p-10 gap-2">
             <h1>{player.name}</h1>
+            <p>Your very own personal page where I will put your dotabuff & opendota data at. Mabye even an AI description of you.</p>
             {/* Render other player information here */}
         </main>
     );
