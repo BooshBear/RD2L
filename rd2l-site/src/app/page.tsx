@@ -15,8 +15,8 @@ export default function Home() {
     <main className="flex min-h-screen flex-col rounde items-center justify-between p-10">
       <div className='grid grid-col-2 gap-6 justify-center items-center'>
         <div className='mb-10 col-span-2 flex flex-col justify-center items-center'>
-          <h1 className='uppercase font-mono text-4xl text-shadow-[_6px_8px_3px_var(--tw-shadow-color)] shadow-[#9b3839] mb-10'>divisions</h1>
-          <div className='grid grid-cols-5 w-full font-sans uppercase'>
+          <h1 className='uppercase font-mono text-4xl text-shadow-[_6px_8px_3px_var(--tw-shadow-color)] shadow-[#c34e50] mb-10'>divisions</h1>
+          <div className='grid grid-cols-5 w-full font-sans uppercase text-neutral-800'>
             <Link href={"/divisions"} className="flex flex-col text-sm justify-center items-center transition-all duration-150 hover:text-white hover:text-xs hover:grayscale-[1]">
               <p>Monday 8PM EST</p>
               <Image className='absolute z-[-1] translate-y-[8px]' src={'/assets/images/bpixel.png'} alt='...loading' height={200} width={200}></Image>
@@ -49,7 +49,7 @@ export default function Home() {
           priority
           />
         </div>
-        <Card className='row-start-2 flex flex-col justify-center items-center rounded-[4px] h-60 w-80 bg-[#141414] text-white border-4 border-[#9b3839]'>
+        <Card className='row-start-2 flex flex-col justify-center items-center rounded-[4px] h-60 w-80 bg-[#141414] text-white border-4 border-[#c34e50]'>
           <CardHeader>
             <CardTitle className='text-2xl'>General Info</CardTitle>
             <CardDescription>
@@ -60,7 +60,7 @@ export default function Home() {
             </CardDescription>
           </CardHeader>
         </Card>
-        <Card className='flex flex-col justify-center items-center rounded-[4px] h-60 w-80 p-6 bg-[#141414] text-white border-4 border-[#9b3839]'>
+        <Card className='flex flex-col justify-center items-center rounded-[4px] h-60 w-80 p-6 bg-[#141414] text-white border-4 border-[#c34e50]'>
           <CardHeader>
             <CardTitle className='text-2xl'>Player Culture</CardTitle>
             <CardDescription>
@@ -71,7 +71,7 @@ export default function Home() {
             </CardDescription>
           </CardHeader>
         </Card>
-        <Card className='flex flex-col justify-center items-center rounded-[4px] h-60 w-80 p-6 bg-[#141414] text-white border-4 border-[#9b3839]'>
+        <Card className='flex flex-col justify-center items-center rounded-[4px] h-60 w-80 p-6 bg-[#141414] text-white border-4 border-[#c34e50]'>
           <CardHeader>
             <CardTitle className='text-2xl'>RD2L Features</CardTitle>
             <CardDescription>
