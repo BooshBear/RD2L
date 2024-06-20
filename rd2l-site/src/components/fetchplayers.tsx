@@ -46,11 +46,11 @@ const FetchPlayers = () => {
     };
 
     return (
-        <div className='grid grid-cols-4 place-items-center gap-2 min-w-[600px] min-h-[200px]'>
+        <div className='grid grid-cols-4 justify-items-center gap-2 min-w-[600px] min-h-[200px]'>
             <form className='col-span-4'>
                 <input
                     placeholder="Search Player Name"
-                    className="bg-black rounded-[5px] p-2 m-2 text-center text-white shadow-lg shadow-[#9b3839] hover:border-2 hover:border-[#9b3839]"
+                    className="bg-black rounded-[5px] p-2 text-center text-white shadow-lg shadow-[#9b3839]"
                     value={searchQuery}
                     onChange={handleSearch}
                 />
