@@ -8,7 +8,7 @@ export default function NavBar() {
     const isActive = (href: any) => pathname == href;
 
     return (
-      <nav className='flex justify-between text-neutral-800 font-mono text-lg absolute h-10 w-full'>
+      <nav className='flex justify-between font-semibold font-mono text-lg absolute h-10 w-full'>
           <div className='flex gap-2 ml-5'>
             {/* RD2l Or Home */}
             <Link href='/' className={`hover:bg-opacity-40 hover:bg-[#9b383a8a] pl-2 pr-2 p-2 rounded-b-[4px] ${isActive("/") ? "bg-[#c34e50]" : ""}`}>

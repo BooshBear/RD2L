@@ -1,3 +1,4 @@
+
 import { connectToDatabase } from '../../../../lib/mongoDBConnect'; // Adjust the import path as needed
 // app/players/[name]/page.tsx
 interface Player {
@@ -13,11 +14,10 @@ interface PlayerPageProps {
 }
 
 const PlayerPage = async ({ params }: PlayerPageProps) => {
-    const { name } = params;
-
+    const decodedName = decodeURIComponent(params.name);
     const client = connectToDatabase();
     const db = (await client).db()
-    const player = await db.collection('users').findOne({ name });
+    const player = await db.collection('users').findOne({ name: decodedName });
 
     if (!player) {
         return (

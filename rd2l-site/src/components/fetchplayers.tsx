@@ -57,7 +57,7 @@ const FetchPlayers = () => {
             </form>
             {filteredPlayers.map(player => (
                 <div key={player._id}>
-                    <Button variant="outline" className='rounded-[0.3rem] hover:bg-zinc-200 '><Link href={`/players/${player.name}`}>{player.name}</Link></Button>
+                    <Link href={`/players/${player.name}`}><Button variant="outline" className='rounded-[0.3rem] min-w-[10rem] hover:bg-zinc-200 '>{player.name}</Button></Link>
                     
                     {/* Render other player information here */}
                 </div>
