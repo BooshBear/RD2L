@@ -1,9 +1,0 @@
-{
-    "functions": {
-      "api/playerUpdate/route.ts": {
-        "memory": 128,
-        "maxDuration": 60,
-        "schedule": "0 0 * * 0"
-      }
-    }
-  }

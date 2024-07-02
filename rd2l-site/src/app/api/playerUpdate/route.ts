@@ -10,12 +10,6 @@ async function handler(req: NextRequest) {
         // Fetch the last update time
         const lastUpdate = await db.collection('updateMeta').findOne({ name: 'lastUpdate' });
 
-        // Check if 24 hours have passed since the last update
-        const now = new Date();
-        if (lastUpdate && now.getTime() - new Date(lastUpdate.time).getTime() < 24 * 60 * 60 * 1000) {
-            return NextResponse.json({ message: 'Less than 24 hours since the last update. Skipping update.' });
-        }
-
         // Fetch up to 200 players that need an update
         const players = await db.collection('users').find({ needsUpdate: true }).limit(200).toArray();
 
