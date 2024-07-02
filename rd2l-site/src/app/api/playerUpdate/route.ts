@@ -46,20 +46,7 @@ const fetchPlayerRank = async (playerId: any) => {
     // Simulating API call with a delay
 
     await new Promise(resolve => setTimeout(resolve, 100)); // Simulate a delay for API call
-    return `${steamID64ToSteamID3('76561198167257216')}`;
+    return `UpdatedRank`;
 };
-
-function steamID64ToSteamID3(steamID64: string): string {
-    // Subtract the base SteamID64 value
-    const steamBase = BigInt("76561197960265728");
-    const steamID64BigInt = BigInt(steamID64);
-
-    if (steamID64BigInt < steamBase) {
-        throw new Error("Invalid SteamID64");
-    }
-
-    const accountID = steamID64BigInt - steamBase;
-    return `[U:1:${accountID.toString()}]`;
-}
 
 export { handler as GET, handler as POST };
