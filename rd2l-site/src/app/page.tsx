@@ -17,23 +17,23 @@ export default function Home() {
         <div className='mb-10 col-span-2 flex flex-col justify-center items-center'>
           <h1 className='uppercase font-mono text-4xl text-shadow-[_6px_8px_3px_var(--tw-shadow-color)] shadow-[#c34e50] mb-10'>divisions</h1>
           <div className='grid grid-cols-5 w-full font-sans uppercase text-neutral-800'>
-            <Link href={"/divisions"} className="flex flex-col text-sm justify-center items-center transition-all duration-150 hover:text-white hover:text-xs hover:grayscale-[1]">
+            <Link href={"/divisions/Monday8Est"} className="flex flex-col text-sm justify-center items-center transition-all duration-150 hover:text-white hover:text-xs hover:grayscale-[1]">
               <p>Monday 8PM EST</p>
               <Image className='absolute z-[-1] translate-y-[8px]' src={'/assets/images/bpixel.png'} alt='...loading' height={200} width={200}></Image>
             </Link>
-            <Link href={"/divisions"} className='flex flex-col text-sm justify-center items-center transition-all duration-150 hover:text-white hover:text-xs hover:grayscale-[1]'>
+            <Link href={"/divisions/Tuesday9Est"} className='flex flex-col text-sm justify-center items-center transition-all duration-150 hover:text-white hover:text-xs hover:grayscale-[1]'>
               <p>Tuesday 9PM EST</p>
               <Image className='absolute z-[-1] translate-y-[8px]' src={'/assets/images/bpixel.png'} alt='...loading' height={200} width={200}></Image>
             </Link>
-            <Link href={"/divisions"} className='flex flex-col justify-center text-sm items-center transition-all duration-150 hover:text-white hover:text-xs hover:grayscale-[1]'>
+            <Link href={"/divisions/Wednesday6Pst"} className='flex flex-col justify-center text-sm items-center transition-all duration-150 hover:text-white hover:text-xs hover:grayscale-[1]'>
               <p>Wednesday 6PM PST</p>
               <Image className='absolute z-[-1] translate-y-[8px]' src={'/assets/images/bpixel.png'} alt='...loading' height={200} width={200}></Image>
             </Link>
-            <Link href={"/divisions"} className='flex flex-col text-sm justify-center items-center transition-all duration-150 hover:text-white hover:text-xs hover:grayscale-[1]'>
+            <Link href={"/divisions/Sunday8Est"} className='flex flex-col text-sm justify-center items-center transition-all duration-150 hover:text-white hover:text-xs hover:grayscale-[1]'>
               <p>Sunday 8PM EST</p>
               <Image className='absolute z-[-1] translate-y-[8px]' src={'/assets/images/bpixel.png'} alt='...loading' height={200} width={200}></Image>
             </Link>
-            <Link href={"/divisions"} className='flex flex-col text-sm justify-center items-center transition-all duration-150 hover:text-white hover:text-sm hover:grayscale-[1]'>
+            <Link href={"/divisions/Sunday7Pst"} className='flex flex-col text-sm justify-center items-center transition-all duration-150 hover:text-white hover:text-sm hover:grayscale-[1]'>
                 <p>Sunday 7PM PST</p>
                 <Image className='absolute z-[-1] translate-y-[8px]' src={'/assets/images/bpixel.png'} alt='...loading' height={200} width={200}></Image>
             </Link>
