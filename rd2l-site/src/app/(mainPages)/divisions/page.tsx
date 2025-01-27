@@ -9,13 +9,13 @@ export default function Divisions() {
                     <h1 className="text-2xl underline">Season 32</h1>
                     <h1>Current state of the season. *be it registering stage, seeding brackets stage, playoffs, or finals stage</h1>
                 </section>
-                {/* Discord pictures with links */}
+                {/* Discord prichar56ictures with links */}
                 <section className="grid grid-cols-4 justify-items-center">
-                    <Link href={"/divisions/Monday8Est"} className="col-span-2"><Image src={""} alt="...loading" height={200} width={200}></Image></Link>
-                    <Link href={"/divisions/Tuesday9Est"} className="col-span-2"><Image src={"/assets/images/divisions/tues.webp"} alt="...loading" height={200} width={200}></Image></Link>
-                    <Link href={"/divisions/Wednesday6Pst"}><Image src={""} alt="...loading" height={200} width={200}></Image></Link>
-                    <Link href={"/divisions/Sunday8Est"} className="col-span-2"><Image src={""} alt="...loading" height={200} width={200}></Image></Link>
-                    <Link href={"/divisions/Sunday7Pst"}><Image src={""} alt="...loading" height={200} width={200}></Image></Link>
+                    <Link href={"/divisions/Monday8Est"} className="col-span-2"><Image src={""} alt="...loading" height={200} width={200}/></Link>
+                    <Link href={"/divisions/Tuesday9Est"} className="col-span-2"><Image src={"/assets/images/divisions/tues.webp"} alt="...loading" height={200} width={200}/></Link>
+                    <Link href={"/divisions/Wednesday6Pst"}><Image src={""} alt="...loading" height={200} width={200}/></Link>
+                    <Link href={"/divisions/Sunday8Est"} className="col-span-2"><Image src={""} alt="...loading" height={200} width={200}/></Link>
+                    <Link href={"/divisions/Sunday7Pst"}><Image src={""} alt="...loading" height={200} width={200}/></Link>
                 </section>
             </div>
         </main>

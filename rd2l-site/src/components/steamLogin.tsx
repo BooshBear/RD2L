@@ -1,5 +1,6 @@
 "use client"
 import { signIn, signOut, useSession } from "next-auth/react"
+import Image from "next/image"
 import Link from "next/link"
 
 
@@ -22,7 +23,7 @@ export default function SteamLogin() {
     (
         <>
             {/* providers being used in api auth route, currently using google and reddit */}
-            <button className={`hover:bg-opacity-40 hover:bg-[#9b383a8a] h-10 mr-3 p-2 rounded-b-[4px]`} onClick={() => signIn()}>Sign in</button>
+            <button className={`p-1`} onClick={() => signIn()}><img alt="Loading..." src={'/sits_01.png'}></img></button>
         </>
         
     )

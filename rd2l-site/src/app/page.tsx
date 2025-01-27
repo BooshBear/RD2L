@@ -12,9 +12,9 @@ import Link from 'next/link'
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col rounde items-center justify-between p-10">
-      <div className='grid grid-col-2 gap-6 justify-center items-center'>
-        <div className='mb-10 col-span-2 flex flex-col justify-center items-center'>
+    <main className="flex min-h-screen flex-col items-center justify-between p-10">
+      <div className='grid grid-col-2 gap-6 items-center flex-grow'>
+        <div className='mb-10 col-span-2 flex flex-col justify-center items-center '>
           <h1 className='uppercase font-mono text-4xl text-shadow-[_6px_8px_3px_var(--tw-shadow-color)] shadow-[#c34e50] mb-10'>divisions</h1>
           <div className='grid grid-cols-5 w-full font-sans uppercase text-neutral-800'>
             <Link href={"/divisions/Monday8Est"} className="flex flex-col text-sm justify-center items-center transition-all duration-150 hover:text-white hover:text-xs hover:grayscale-[1]">
@@ -44,14 +44,14 @@ export default function Home() {
           className='relative drop-shadow-[0_0_6rem_#141414]'
           src="/assets/images/rd2l-lame.png"
           alt='My Image'
-          width={750}
-          height={750}
+          width={1050}
+          height={150}
           priority
           />
         </div>
-        <Card className='row-start-2 flex flex-col justify-center items-center rounded-[4px] h-60 w-80 bg-[#141414] text-white border-4 border-[#c34e50]'>
+        <Card className='row-start-2 flex flex-col justify-center items-center rounded-[4px] h-60 w-80 bg-[#141414] text-white border-2 border-[#c34e50] transition-all duration-500 hover:border-4 hover:scale-105'>
           <CardHeader>
-            <CardTitle className='text-2xl'>General Info</CardTitle>
+            <CardTitle className='text-2xl text-[#c34e50]'>General Info</CardTitle>
             <CardDescription>
               Individual signups<br></br>
               Teams built via draft<br></br>
@@ -60,9 +60,9 @@ export default function Home() {
             </CardDescription>
           </CardHeader>
         </Card>
-        <Card className='flex flex-col justify-center items-center rounded-[4px] h-60 w-80 p-6 bg-[#141414] text-white border-4 border-[#c34e50]'>
+        <Card className='flex flex-col justify-center items-center rounded-[4px] h-60 w-80 p-6 bg-[#141414] text-white border-2 border-[#c34e50] transition-all duration-500 hover:border-4 hover:scale-105'>
           <CardHeader>
-            <CardTitle className='text-2xl'>Player Culture</CardTitle>
+            <CardTitle className='text-2xl text-[#c34e50]'>Player Culture</CardTitle>
             <CardDescription>
                Make new friends<br></br>
               Grow with your teammates<br></br>
@@ -71,9 +71,9 @@ export default function Home() {
             </CardDescription>
           </CardHeader>
         </Card>
-        <Card className='flex flex-col justify-center items-center rounded-[4px] h-60 w-80 p-6 bg-[#141414] text-white border-4 border-[#c34e50]'>
+        <Card className='flex flex-col justify-center items-center rounded-[4px] h-60 w-80 p-6 bg-[#141414] text-white border-2 border-[#c34e50] transition-all duration-500 hover:border-4 hover:scale-105'>
           <CardHeader>
-            <CardTitle className='text-2xl'>RD2L Features</CardTitle>
+            <CardTitle className='text-2xl text-[#c34e50]'>RD2L Features</CardTitle>
             <CardDescription>
               Inhouse partipition<br></br>
               Play in weekend tourneys<br></br>
