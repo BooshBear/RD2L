@@ -1,4 +1,4 @@
-import FetchPlayers from "@/components/fetchplayers";
+import { FetchPlayers } from "@/components/fetchPlayerss";
 
 export default function Players() {
 

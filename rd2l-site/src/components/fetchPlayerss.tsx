@@ -9,7 +9,7 @@ interface Player {
     // Add other properties as needed
 }
 
-const FetchPlayers = () => {
+export const FetchPlayers = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [players, setPlayers] = useState<Player[]>([]);
     const [filteredPlayers, setFilteredPlayers] = useState<Player[]>([]);
@@ -65,5 +65,3 @@ const FetchPlayers = () => {
         </div>
     );
 };
-
-export default FetchPlayers;
