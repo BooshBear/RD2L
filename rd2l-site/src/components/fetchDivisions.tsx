@@ -33,7 +33,7 @@ export const FetchDivisions = () => {
     <section className="flex justify-center items-center">
       <div className="flex flex-wrap justify-center items-center gap-6">
         {divions.map((division) => (
-          <Link href={`/divisions/${division.slug}`}>
+          <Link key={division.slug} href={`/divisions/${division.slug}`}>
             <Card className="w-96 flex flex-col justify-center items-center text-center">
               <CardHeader>
                 <CardTitle>{division.divisionName}</CardTitle>

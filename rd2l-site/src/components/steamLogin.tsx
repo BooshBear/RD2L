@@ -23,7 +23,7 @@ export default function SteamLogin() {
     (
         <>
             {/* providers being used in api auth route, currently using google and reddit */}
-            <button className={`p-1`} onClick={() => signIn()}><img alt="Loading..." src={'/sits_01.png'}></img></button>
+            <button className={`p-1`} onClick={() => signIn()}><Image alt="Loading..." src={'/sits_01.png'} height={100} width={200}></Image></button>
         </>
         
     )

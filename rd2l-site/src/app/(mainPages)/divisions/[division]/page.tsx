@@ -25,7 +25,7 @@ const DivisionPage = async ({ params }: DivisionsPageProps) => {
       <main className="min-h-screen p-10 flex justify-center items-center">
         <div>
           <h1 className="text-red-600 text-4xl">
-            ! This Division Doesn't Exist !
+            ! This Division Doesn&#39;t Exist !
           </h1>
         </div>
       </main>
