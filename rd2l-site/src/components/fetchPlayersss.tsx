@@ -46,8 +46,8 @@ export const FetchPlayers = () => {
     };
 
     return (
-        <div className='grid grid-cols-4 justify-items-center gap-2 min-w-[600px] min-h-[200px]'>
-            <form className='col-span-4'>
+        <div className='grid grid-cols-4 justify-items-center gap-2'>
+            <form className='col-span-full mb-3'>
                 <input
                     placeholder="Search Player Name"
                     className="bg-black rounded-[5px] p-2 text-center text-white shadow-lg shadow-[#9b3839]"
@@ -55,6 +55,7 @@ export const FetchPlayers = () => {
                     onChange={handleSearch}
                 />
             </form>
+            <h3 className="col-span-full mb-3 italic">* List of all players who have signed up for RD2L *</h3>
             {filteredPlayers.map(player => (
                 <div key={player._id}>
                     <Link href={`/players/${player.name}`}><Button variant="outline" className='rounded-[0.3rem] min-w-[10rem] hover:bg-zinc-200 '>{player.name}</Button></Link>
